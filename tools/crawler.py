@@ -6,7 +6,7 @@ import urllib.request
 import requests
 import os
 
-class StockDataScrapper():
+class StockDataCrawler():
     
     def __init__(self, df):
         self.df = df

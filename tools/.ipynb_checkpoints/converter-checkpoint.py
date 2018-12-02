@@ -9,7 +9,7 @@ except:
     import pickle # alternative
 from sklearn.preprocessing import StandardScaler # for ml format
 
-class DataPreparer():
+class DataConverter():
     
     def __init__(self):
         self.scalers = {}
@@ -61,4 +61,4 @@ class DataPreparer():
             self.scalers = pickle.load(file)
 
     def __repr__(self):
-        return 'DataPreparer()'
+        return 'DataConverter()'
