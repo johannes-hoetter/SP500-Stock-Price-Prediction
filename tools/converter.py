@@ -1,4 +1,5 @@
 # author: Johannes Hötter (https://github.com/johannes-hoetter)
+# version: 1.0
 # last updated on: 25/11/2018
 
 import pandas as pd # for dataframe operations
