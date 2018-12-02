@@ -1,3 +1,7 @@
+# author: Johannes Hötter (https://github.com/johannes-hoetter)
+# version: 1.0
+# last updated on: 02/12/2018
+
 import pandas as pd
 import numpy as np
 import os
