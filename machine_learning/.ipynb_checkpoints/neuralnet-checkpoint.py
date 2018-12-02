@@ -6,6 +6,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 
+import numpy as np
 import timeit
 
 class NeuralNetwork(nn.Module):
@@ -48,6 +49,8 @@ class NeuralNetwork(nn.Module):
         for epoch in range(num_epochs):
             optimizer.param_groups[0]['lr'] *= lr_decay # adapt learning rate 
             for batch_idx, (inputs, targets) in enumerate(dataloader['train']):
+                if len(inputs) == 1:
+                    break
                 inputs, targets = inputs.to(self.device).float() , targets.to(self.device).float()
 
                 # Update Weights
@@ -89,6 +92,9 @@ class NeuralNetwork(nn.Module):
         n = len(testloader)
         with torch.no_grad():
             for inputs, targets in testloader:
+                if len(inputs) == 1:
+                    n -= 1
+                    break
                 inputs, targets  = inputs.to(self.device).float(), targets.to(self.device).float() # gpu/cpu
                 outputs = self.forward(inputs)
                 outputs = outputs.view(outputs.numel()) # [32 x 1] -> [32]
