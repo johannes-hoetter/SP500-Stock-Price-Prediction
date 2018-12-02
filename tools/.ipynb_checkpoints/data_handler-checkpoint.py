@@ -15,13 +15,18 @@ class DataHandler:
     
     def __init__(self, dbname='DataFrames'):
         try:
-            self.engine = create_engine('sqlite:///..//data/cleaned/{}.db'.format(dbname))
+            self.dbname = dbname
+            self.engine = create_engine('sqlite:///..//data/cleaned/{}.db'.format(self.dbname))
+            self.symbols = []
         except:
             pass
     
     
     # Database
     def save_to_db(self, df, symbol, index=False, if_exists='replace'):
+        if symbol not in self.symbols:
+            self.symbols.append(symbol)
+            
         try:
             # save the dataframe as a table in the DataFrames.db
             df.to_sql(symbol, self.engine, index=index, if_exists=if_exists)
@@ -37,8 +42,11 @@ class DataHandler:
     
     # Machine Learning Format
     def save_to_npz(self, X, y, symbol, save_dir=''):
+        if symbol not in self.symbols:
+            self.symbols.append(symbol)
+            
         # save the arrays
-        if path == '':
+        if save_dir == '':
             path = '../data/ml_format/{}.npz'.format(symbol)
         else:
             path = save_dir + '/{}.npz'.format(symbol)
@@ -61,13 +69,24 @@ class DataHandler:
     
     def serialize(self, path='serialized_tool_objects/datahandler.p'):
         with open(path, 'wb') as file:
-            pickle.dump(preparer.scalers, file)
+            pickle.dump([self.dbname, self.symbols], file)
     
     
     def initialize(self, path='serialized_tool_objects/datahandler.p'):
         with open(path, 'rb') as file:
-            self.scalers = pickle.load(file)
+            self.dbname, self.symbols = pickle.load(file)
+            self.engine = create_engine('sqlite:///..//data/cleaned/{}.db'.format(self.dbname))
             
+   
+    def get_symbols(self, data_dir='../data/raw'):
+        if self.symbols is None:
+            symbols = []
+            for file in os.listdir(data_dir):
+                if file.endswith(".csv"):
+                    print(file)
+        else:
+            return self.symbols
+
             
     def __repr__(self):
-        return 'DataHandler({})'.format(self.dbname)
+        return "DataHandler('{}')".format(self.dbname)
