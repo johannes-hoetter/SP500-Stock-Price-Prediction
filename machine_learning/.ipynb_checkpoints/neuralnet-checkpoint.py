@@ -1,6 +1,6 @@
 # author: Johannes Hötter (https://github.com/johannes-hoetter)
 # version: 1.0
-# last updated on: 02/12/2018
+# last updated on: 04/12/2018
 
 import torch
 from torch import nn
@@ -38,19 +38,29 @@ class NeuralNetwork(nn.Module):
         return self.fc3(x)
     
     
-    def fit(self, dataloader, symbol, optimizer, criterion, num_epochs, print_every=100, lr_decay=0.99, path=''):
+    def fit(self, dataloader, symbol, optimizer, criterion, num_epochs, print_every=100, lr_decay=0.99, path='', eval=True, return_stats=True):
+        
+        # Default dir for saved models: 'models/'
         if path == '':
             path = 'models/{}_regressor.pth'.format(symbol)
-        print("Start Training...")
-        start = timeit.default_timer()
-        self.to(self.device)
+            
+        # Begin of Training (init screen, prepare variables etc.)    
+        print("----------------------------------------------------------------------------")
+        print("|START TRAINING FOR SYMBOL: [{:>4}]                                         |".format(symbol))
+        print("| TRAIN EPOCH | PROCESSED DATA      | TRAIN RMSE | TEST RMSE  | CHECKPOINT |")
+        print("----------------------------------------------------------------------------")
+        self.to(self.device) # cpu / gpu
         self.train() # put model into train mode (dropout activated)
         best_test_rmse = float('inf')
+        first_test_rmse = None # needed if training gets evaluated
+        start = timeit.default_timer()
+            
+        # Training Process
         for epoch in range(num_epochs):
             optimizer.param_groups[0]['lr'] *= lr_decay # adapt learning rate 
             for batch_idx, (inputs, targets) in enumerate(dataloader['train']):
-                if len(inputs) == 1:
-                    break
+                if len(inputs) == 1: # exception handling (due to Batch Normalization)
+                    break # as the only possible case for this is at the end of the loop, we can stop the loop at all
                 inputs, targets = inputs.to(self.device).float() , targets.to(self.device).float()
 
                 # Update Weights
@@ -64,13 +74,15 @@ class NeuralNetwork(nn.Module):
                 # Print Logs & Test on testing data
                 if batch_idx % print_every == 0:
                     test_rmse = self.validate(dataloader['test'], criterion)
+                    if first_test_rmse is None:
+                        first_test_rmse = test_rmse
                     if test_rmse < best_test_rmse:
                         best_test_rmse = test_rmse
-                        self.serialize(path)
+                        self.serialize(path) # save the model in the given directory
                         is_checkpoint = 'X'
                     else:
                         is_checkpoint = ''
-                    print('Train Epoch: {}/{} [{}/{} ({:.0f}%)] .. Train RMSE: {:.2f} .. Test RMSE: {:.2f} .. Checkpoint: {}'.
+                    print('| {:4}/{:4}   | {:6}/{:6} ({:2.0f}%) |  {:7.2f}   |  {:7.2f}   |     {:1}      |'.
                           format(epoch + 1, 
                                  num_epochs, 
                                  batch_idx * len(inputs), 
@@ -79,17 +91,36 @@ class NeuralNetwork(nn.Module):
                                  rmse.item(),
                                  test_rmse, 
                                  is_checkpoint))
+                    
+        # End of Training            
         stop = timeit.default_timer()
-        seconds = stop - start
-        print("Time needed for Training: {}".format(np.round(seconds,2)))
-        print("Finished Training!")
+        seconds = round(stop - start)
         self.eval() # put model into evaluation mode (no dropout)
+        
+        # print statistics
+        print("----------------------------------------------------------------------------")
+        if eval:
+            print("|TIME NEEDED FOR TRAINING: {:5.0f} SEC.                                      |".format(np.round(seconds,2)))
+            if best_test_rmse <= (first_test_rmse / 4) or best_test_rmse <= 5.0:
+                print("|FINISHED TRAINING. MODEL HAS IMPROVED NOTEWORTHLY.                        |")
+                improved = True
+            else:
+                print("|FINISHED TRAINING. MODEL HAS NOT IMPROVED NOTEWORTHLY.                    |")
+                improved = False
+        else:
+            print("|FINISHED TRAINING.                                                        |")
+        print("----------------------------------------------------------------------------")
+        print()
+        if eval and return_stats:
+            return improved, first_test_rmse, best_test_rmse, seconds
     
    
     def validate(self, testloader, criterion):
         rmse = 0
         accuracy = 0
         n = len(testloader)
+        if n == 0:
+            return np.nan
         with torch.no_grad():
             for inputs, targets in testloader:
                 if len(inputs) == 1:
