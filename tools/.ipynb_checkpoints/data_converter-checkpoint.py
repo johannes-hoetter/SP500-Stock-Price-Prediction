@@ -1,6 +1,6 @@
 # author: Johannes Hötter (https://github.com/johannes-hoetter)
 # version: 1.0
-# last updated on: 25/11/2018
+# last updated on: 05/12/2018
 
 import pandas as pd # for dataframe operations
 import datetime # to convert columns in the dataframe
@@ -9,6 +9,8 @@ try:
 except:
     import pickle # alternative
 from sklearn.preprocessing import StandardScaler # for ml format
+from collections import OrderedDict
+import numpy as np
 
 class DataConverter():
     
@@ -51,12 +53,35 @@ class DataConverter():
     
     
     def convert_x(self, x, symbol):
+        '''
+        Example - MUST KEEP THE KEY-ORDER!:
+        x = {
+            'Open': 20.6,
+            'High': 21.45,
+            'Low': 20.22,
+            'Close': 20.6,
+            'Volume': 23402800.0,
+            'Ex-Dividend': 0.0,
+            'Split_Ratio': 1.0,
+            'Adj._Open': 15.624619538007,
+            'Adj._High': 16.269324713118998,
+            'Adj._Low': 15.336398400897998,
+            'Adj._Close': 15.624619538007,    
+            'Adj._Volume': 23402800.0,
+            'Year': 2008.0,
+            'Month': 4.0,
+            'Day': 23.0
+        }
+        '''
+        x = OrderedDict(x) # don't change the value of the dict!
         try:
             scaler = self.scalers[symbol]
         except:
             raise Exception('Symbol {} not contained in Trainingset, therefore not possible to convert the input.'.format(symbol))
-        x = scaler.transform(x.reshape(1, -1))
-        return x
+        
+        x_values = np.array(list(x.values())).reshape(1, -1)
+        ml_x = scaler.transform(x_values)
+        return ml_x
     
     
     def serialize(self, path='serialized_tool_objects/dataconverter.p'):

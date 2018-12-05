@@ -38,7 +38,7 @@ class NeuralNetwork(nn.Module):
         return self.fc3(x)
     
     
-    def fit(self, dataloader, symbol, optimizer, criterion, num_epochs, print_every=100, lr_decay=0.99, path='', eval=True, return_stats=True):
+    def fit(self, dataloader, symbol, optimizer, criterion, num_epochs, print_every=100, lr_decay=0.95, path='', eval=True, return_stats=True):
         
         # Default dir for saved models: 'models/'
         if path == '':
@@ -101,11 +101,12 @@ class NeuralNetwork(nn.Module):
         print("----------------------------------------------------------------------------")
         if eval:
             print("|TIME NEEDED FOR TRAINING: {:5.0f} SEC.                                      |".format(np.round(seconds,2)))
-            if best_test_rmse <= (first_test_rmse / 4) or best_test_rmse <= 5.0:
-                print("|FINISHED TRAINING. MODEL HAS IMPROVED NOTEWORTHLY.                        |")
+            if best_test_rmse <= (first_test_rmse / 8): 
+                # model has improved significantly (value 8 for division is arbitrary, seemed to be a good threshold while training)
+                print("|FINISHED TRAINING. MODEL HAS IMPROVED SIGNIFICANTLY.                      |")
                 improved = True
             else:
-                print("|FINISHED TRAINING. MODEL HAS NOT IMPROVED NOTEWORTHLY.                    |")
+                print("|FINISHED TRAINING. MODEL HAS NOT IMPROVED SIGNIFICANTLY.                  |")
                 improved = False
         else:
             print("|FINISHED TRAINING.                                                        |")
@@ -133,8 +134,9 @@ class NeuralNetwork(nn.Module):
         return rmse / n
     
     
-    def predict(self, x, device='cpu'):
+    def predict(self, x):
         tensor = torch.from_numpy(np.array(x)).float()
+        tensor = tensor.to(self.device)
         self.to(self.device)
         output = self.forward(tensor).item()
         return abs(output)
