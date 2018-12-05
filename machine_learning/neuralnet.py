@@ -1,6 +1,6 @@
 # author: Johannes Hötter (https://github.com/johannes-hoetter)
 # version: 1.0
-# last updated on: 04/12/2018
+# last updated on: 05/12/2018
 
 import torch
 from torch import nn
