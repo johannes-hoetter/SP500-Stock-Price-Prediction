@@ -5,6 +5,9 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="machine_learning.sp500.neuralnet" />
+          <option value="tools.etl.web_crawler" />
+          <option value="tools.etl.data_converter" />
+          <option value="tools.etl.data_handler" />
         </list>
       </option>
     </inspection_tool>

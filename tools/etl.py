@@ -6,10 +6,11 @@ import pandas as pd
 import numpy as np
 import os
 from tqdm import tqdm
+import sys
 
 # Custom Modules
-from crawler import StockDataCrawler
-from converter import DataConverter
+from web_crawler import StockDataCrawler
+from data_converter import DataConverter
 from data_handler import DataHandler
 
 def full_etl(crawler, converter, data_handler, data_dir='../data'):
@@ -31,7 +32,7 @@ def full_etl(crawler, converter, data_handler, data_dir='../data'):
             X, y = converter.convert_ml_format(df, symbol)
 
             # save the dataframe as a table in the DataFrames.db
-            data_handler.save_to_db(df, symbol) # will save the data in data/cleaned 
+            data_handler.save_to_db(df, symbol) # will save the data in data/cleaned
 
             # save the arrays
             data_handler.save_to_npz(X, y, symbol, save_dir=ml_dir)
@@ -54,8 +55,12 @@ def convert_first_row_as_header(df):
 
 
 if __name__ == '__main__':
-    sp500_data = get_sp500_data()
-    crawler = StockDataCrawler(sp500_data)
-    converter = DataConverter()
-    data_handler = DataHandler()
-    full_etl(crawler, converter, data_handler)
+    if len(sys.argv) > 1:
+        print("TODO")
+        pass
+    else:
+        sp500_data = get_sp500_data()
+        crawler = StockDataCrawler(sp500_data)
+        converter = DataConverter()
+        data_handler = DataHandler()
+        full_etl(crawler, converter, data_handler)
