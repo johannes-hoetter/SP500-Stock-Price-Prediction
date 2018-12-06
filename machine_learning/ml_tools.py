@@ -12,10 +12,12 @@ class MLDataWrapper():
     def __init__(self, data, target):
         self.dataset = MLData(data, target)
         self.shape = self.dataset.shape
-    
+
+
     def __len__(self):
         return len(self.dataset)
-    
+
+
     def __getitem__(self, idx):
         return self.dataset.__getitem__(idx)
     
@@ -44,12 +46,15 @@ class MLData(Dataset):
             self.data = data
         self.target = target
         self.shape = data.shape
-    
+
+
     def __len__(self):
         return len(self.data)
-    
+
+
     def __getitem__(self, idx):
         return self.data[idx], self.target[idx]
-    
+
+
     def get_subset(self, indices):
         return MLData(self.data[indices], self.target[indices])

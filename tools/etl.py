@@ -41,15 +41,18 @@ def full_etl(crawler, converter, data_handler, data_dir='../data'):
     converter.serialize()
     data_handler.serialize()
 
+
 def get_sp500_data():
     sp500_data = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
     convert_first_row_as_header(sp500_data)
     return sp500_data    
-    
+
+
 def convert_first_row_as_header(df):
     df.columns = df.iloc[0]
     df.drop(0, axis=0, inplace=True)
-    
+
+
 if __name__ == '__main__':
     sp500_data = get_sp500_data()
     crawler = StockDataCrawler(sp500_data)

@@ -32,7 +32,8 @@ class DataHandler:
             df.to_sql(symbol, self.engine, index=index, if_exists=if_exists)
         except:
             raise Exception("No Connection to Database available.")
-    
+
+
     def load_from_db(self, symbol):
         try:
             return pd.read_sql_table(symbol, con=self.engine)
