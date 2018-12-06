@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sp500predictor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
