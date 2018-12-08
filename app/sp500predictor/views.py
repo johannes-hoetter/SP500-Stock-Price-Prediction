@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import StockInputForm
+from .forms import StockInputForm, StockNumForm
 
 # make the sp500 module available
 import sys
@@ -16,23 +16,48 @@ print("Model has been activated. Ready for Predictive Analytics.")
 
 def index(request):
 
-
-    preds = None
+    preds = {}
     if request.method == 'POST':
-        form = StockInputForm(request.POST)
-        if form.is_valid():
-            stocks = form.cleaned_data['stock_names'].split()
-            print(stocks)
-            for stock in stocks:
-                try:
-                    print(sp500predictor.predict(stock))
-                except:
-                    print("Tried prediction for {}, which isn't contained in Model.".format(stock))
-
+        if 'stock_names' in request.POST:
+            stock_form = StockInputForm(request.POST)
+            num_form = StockNumForm()
+            if stock_form.is_valid():
+                stocks = stock_form.cleaned_data['stock_names'].split()
+                for stock in stocks:
+                    try:
+                        pred = [val for val in sp500predictor.predict(stock).values()][0] # convert from ODict to Value
+                        preds[stock]= pred
+                    except:
+                        print("Tried prediction for {}, which isn't contained in Model.".format(stock))
+                print(preds)
+        elif 'num_stocks' in request.POST:
+            num_form = StockNumForm(request.POST)
+            stock_form = StockInputForm()
+            if num_form.is_valid():
+                num = int(num_form.cleaned_data['num_stocks'])
+                stocks = [symbol for symbol in sp500predictor.models.keys()]
+                pred = sp500predictor.predict(*stocks)
+                for stock in pred:
+                    try:
+                        val_today = sp500predictor.get_todays_prices(stock)
+                        preds[stock] = pred[stock] / val_today
+                    except:
+                        continue
+                preds = [key for key, value in sorted(preds.items(), key=lambda x: x[1])]
+                if num > 0:
+                    preds = preds[-num:]
+                preds = [pred for pred in reversed(preds)]
+                print(preds)
     else:
-        form = StockInputForm()
+        stock_form = StockInputForm()
+        num_form = StockNumForm()
 
-    return render(request, 'sp500predictor/index.html', {'form': form, 'preds': preds})
+    request_dict = {
+        'stock_form': stock_form,
+        'num_form': num_form,
+        'preds': preds
+    }
+    return render(request, 'sp500predictor/index.html', request_dict)
 
 def go(request):
     print("!!!")

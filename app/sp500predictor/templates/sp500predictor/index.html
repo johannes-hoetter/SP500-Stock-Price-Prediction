@@ -5,14 +5,33 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <!-- Get User Input -->
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Submit</button>
-    </form>
+    <header>
+        <h1>STANDARD & POOR'S 500 PREDICTOR</h1>
+    </header>
 
-    {% block result %}
-    {% endblock %}
+    <div>
+        <!-- SP500 Image -->
+    </div>
+    <!-- Get User Input -->
+    <div>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ stock_form }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ num_form }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # author: Johannes Hötter (https://github.com/johannes-hoetter)
 # version: 1.0
-# last updated on: 05/12/2018
+# last updated on: 08/12/2018
 
 import torch
 import numpy as np
@@ -77,6 +77,12 @@ class SP500Predictor:
         path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'ml_format')
         x, _ = data_handler.load_from_npz(symbol, path)
         return x[-1]
+
+    def get_todays_prices(self, symbol):
+        # needs to be changed sometime in the future into an optimized solution!
+        path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'ml_format')
+        _, y = data_handler.load_from_npz(symbol, path)
+        return y[-1]
 
 os.chdir(owd)
 if __name__ == '__main__':
