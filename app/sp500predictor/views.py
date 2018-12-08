@@ -59,7 +59,8 @@ def index(request):
     request_dict = {
         'stock_form': stock_form,
         'num_form': num_form,
-        'preds': preds
+        'preds': preds,
+        'models': sp500predictor.useable_models.keys()
     }
     return render(request, 'sp500predictor/index.html', request_dict)
 

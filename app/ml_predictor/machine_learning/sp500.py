@@ -30,6 +30,7 @@ class SP500Predictor:
 
     def __init__(self):
         self.models = {}
+        self.useable_models = {}
 
 
     def activate(self, model_dir='models'):
@@ -38,6 +39,10 @@ class SP500Predictor:
             try:
                 model.initialize('{}/{}_regressor.pth'.format(model_dir, symbol))
                 self.models[symbol] = model
+
+                # added testwise!
+                if statistics[symbol]['near_real_price'] == 'X':
+                    self.useable_models[symbol] = model
             except:
                 continue
 

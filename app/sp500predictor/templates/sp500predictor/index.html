@@ -3,35 +3,151 @@
 <head>
     <title>"SP 500 Predictor"</title>
     <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
     <header>
         <h1>STANDARD & POOR'S 500 PREDICTOR</h1>
+        <hr>
     </header>
 
-    <div>
-        <!-- SP500 Image -->
-    </div>
-    <!-- Get User Input -->
-    <div>
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                {{ stock_form }}
-                <button type="submit">Submit</button>
-            </form>
+    <div class="container">
+        <div id="sp500_image" class="box">
+            <!-- SP500 Image -->
         </div>
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                {{ num_form }}
-                <button type="submit">Submit</button>
-            </form>
+
+        <!-- User Input -->
+        <div id="user_input">
+            <div class="box name_stocks">
+                <h4>Give Stock Symbol as Input</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ stock_form }}
+                    <button type="submit">Submit</button>
+                </form>
+                <p>Example: AMZN for Amazon Share</p>
+
+                <button class="collapsible">Results</button>
+                    <div class="content">
+                        <table>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Predicted Value for tomorrow</th>
+                            </tr>
+                            {% for symbol, value in preds.items %}
+                                <tr>
+                                    <td>{{ symbol }}</td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+            </div>
+
+            <div class="box num_stocks">
+                <h4>Get Recommendations based on the AI</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ num_form }}
+                    <button type="submit">Submit</button>
+                </form>
+                <p>If values below 1 are entered, each predictable Stock will be returned, the most profitable first.</p>
+
+                <button class="collapsible">Results</button>
+                    <div class="content">
+                        <table>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Predicted Value for tomorrow</th>
+                            </tr>
+                            {% for symbol, value in preds.items %}
+                                <tr>
+                                    <td>{{ symbol }}</td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+            </div>
         </div>
-    </div>
+
+
+        <!-- List of Symbols which can be used as Input -->
+        <div class="box">
+            <button class="collapsible">Available Models for Stock Prediction</button>
+                <div class="content">
+                     <ul class="cols" rel="12">
+                    {% for model in models %}
+                        <li>{{ model }}</li>
+                    {% endfor %}
+                     </ul>
+                </div>
+        </div>
+    </div> <!-- End of container -->
 
     <footer>
 
     </footer>
+
+
+
+    <!-- Collapsible Result Windows -->
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
+
+    <!-- Multiple Column Lists -->
+    <!-- Source: https://stackoverflow.com/questions/2347060/html-css-how-to-create-multiple-column-list -->
+    <script type="text/javascript">
+    // As soon as the document's structure has been loaded:
+    document.addEventListener( "DOMContentLoaded", function() {
+        // For each html elem:
+        elems = document.getElementsByTagName("*"); // OL and UL wanted: chose all (*) here and select later.
+        for ( var e = 0; e < elems.length; e++ ) {
+            // Check if elem is a list (ordered/unordered) and has class name "cols":
+            if ( ( elems[e].tagName == "OL" || elems[e].tagName == "UL" ) && elems[e].className.search("cols") > -1 ) {
+                // Collect list items and number of columns (from the rel attribute):
+                var list = elems[e];
+                var listItems = list.getElementsByTagName("LI");
+                var Ncols = list.getAttribute("rel")*1; // *1 converts rel from string to int.
+                // Determine total number of items, items per column and column width:
+                var Ntotal = listItems.length;
+                var Npercol = Math.ceil( Ntotal/Ncols );
+                var colWidth = Math.floor( 100/Ncols )+"%";
+                // For each column:
+                for ( var c = 0; c < Ncols; c++ ) {
+                    // Create column div:
+                    var colDiv = document.createElement("DIV");
+                    colDiv.style.cssFloat = "left";
+                    colDiv.style.width = colWidth;
+                    // Add list items to column div:
+                    var i_start = c*Npercol;
+                    var i_end = Math.min( (c+1)*Npercol, Ntotal );
+                    for ( var i = i_start; i < i_end; i++ )
+                        colDiv.appendChild( listItems[0] ); // Using listItems[0] instead of listItems[i], because items are moved to colDiv!
+                    // Add column div to list:
+                    list.appendChild( colDiv );
+                }
+            }
+        }
+    } );
+    </script>
 </body>
 </html>
