@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('sp500predictor/', include('sp500predictor.urls'))
+    #path('admin/', admin.site.urls),
+    path('', include('sp500predictor.urls')),
+    path('sp500predictor', include('sp500predictor.urls'))
 ]

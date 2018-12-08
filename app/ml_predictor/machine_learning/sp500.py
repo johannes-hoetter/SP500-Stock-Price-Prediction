@@ -10,12 +10,13 @@ except:
     import pickle
 from collections import OrderedDict
 
-from machine_learning.neuralnet import NeuralNetwork
-from tools.data_handler import DataHandler
+from .neuralnet import NeuralNetwork
+from ..tools.data_handler import DataHandler
 
 # this way the files can be opened from other modules
 import os
-cwd = '{}/../machine_learning'.format(os.getcwd())
+owd = os.getcwd()
+cwd = os.path.join(os.getcwd(), 'ml_predictor', 'machine_learning')
 os.chdir(cwd)
 
 with open('stats/training_stats.p', 'rb') as stats_file:
@@ -39,7 +40,6 @@ class SP500Predictor:
                 self.models[symbol] = model
             except:
                 continue
-
 
     def predict(self, *symbols, timerange='D'):
         predictions = OrderedDict()
@@ -74,10 +74,11 @@ class SP500Predictor:
 
     def get_todays_values(self, symbol):
         # needs to be changed sometime in the future into an optimized solution!
-        x, _ = data_handler.load_from_npz(symbol)
+        path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'ml_format')
+        x, _ = data_handler.load_from_npz(symbol, path)
         return x[-1]
 
-
+os.chdir(owd)
 if __name__ == '__main__':
 
     sp500_predictor = SP500Predictor()
