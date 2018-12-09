@@ -62,15 +62,25 @@ class SP500Predictor:
         # note: timeranges will be implemented next
 
 
-    def predict_history(self, *symbols):
+    def predict_history(self, *symbols, path='', max=None):
         predictions = OrderedDict()
         for symbol in symbols:
             if statistics[symbol]['near_real_price'] == 'X':
                 preds = []
-                X, _ = data_handler.load_from_npz(symbol)
-                for x in X:
-                    pred = self.models[symbol].predict([x])
-                    preds.append(pred)
+                if path == '':
+                    X, _ = data_handler.load_from_npz(symbol)
+                else:
+                    X, _ = data_handler.load_from_npz(symbol, path=path)
+                if max:
+                    X = X[-max:]
+                    for idx, x in enumerate(X):
+                        if idx == max: break
+                        pred = self.models[symbol].predict([x])
+                        preds.append(pred)
+                else:
+                    for x in X:
+                        pred = self.models[symbol].predict([x])
+                        preds.append(pred)
                 predictions[symbol] = preds
             else:
                 predictions[symbol] = None  # model is not "sure" enough

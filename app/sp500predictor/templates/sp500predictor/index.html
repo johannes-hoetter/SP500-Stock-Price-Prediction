@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 </head>
 <body>
     <header>
@@ -17,7 +19,65 @@
 
     <div class="container">
         <div id="sp500_image" class="box">
-            <!-- SP500 Image -->
+            <canvas id="stock_visualization" width="100" height="100"></canvas>
+            <script>
+                var dates = {{ data_dates }};
+                var prices = {{ data_prices}};
+                var preds = {{ data_preds }};
+                var symbol = "{{ data_symbol }}";
+                var ctx = document.getElementById("stock_visualization").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'actual prices',
+                            data: prices,
+                            fill: false,
+                            borderColor: 'rgba(255, 99, 132, 0.2)'
+                        },{
+                            label: 'predicted prices',
+                            data: preds,
+                            fill: false,
+                            borderColor: 'rgba(0, 99, 132, 0.2)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
+                            display: true,
+                            text: 'Comparison of Historical Data for '.concat(symbol)
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        hover: {
+                            mode: 'nearest',
+                            intersect: true
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: true
+                                },
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Date'
+                                }
+                            }],
+                            yAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Price per Share in USD'
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
         </div>
 
         <!-- User Input -->
@@ -95,59 +155,9 @@
 
 
 
-    <!-- Collapsible Result Windows -->
-    <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+    <script src="{% static 'javascript/collapse.js' %}"></script>
+    <script src="{% static 'javascript/multiple_column_lists.js' %}"></script>
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
-    </script>
 
-    <!-- Multiple Column Lists -->
-    <!-- Source: https://stackoverflow.com/questions/2347060/html-css-how-to-create-multiple-column-list -->
-    <script type="text/javascript">
-    // As soon as the document's structure has been loaded:
-    document.addEventListener( "DOMContentLoaded", function() {
-        // For each html elem:
-        elems = document.getElementsByTagName("*"); // OL and UL wanted: chose all (*) here and select later.
-        for ( var e = 0; e < elems.length; e++ ) {
-            // Check if elem is a list (ordered/unordered) and has class name "cols":
-            if ( ( elems[e].tagName == "OL" || elems[e].tagName == "UL" ) && elems[e].className.search("cols") > -1 ) {
-                // Collect list items and number of columns (from the rel attribute):
-                var list = elems[e];
-                var listItems = list.getElementsByTagName("LI");
-                var Ncols = list.getAttribute("rel")*1; // *1 converts rel from string to int.
-                // Determine total number of items, items per column and column width:
-                var Ntotal = listItems.length;
-                var Npercol = Math.ceil( Ntotal/Ncols );
-                var colWidth = Math.floor( 100/Ncols )+"%";
-                // For each column:
-                for ( var c = 0; c < Ncols; c++ ) {
-                    // Create column div:
-                    var colDiv = document.createElement("DIV");
-                    colDiv.style.cssFloat = "left";
-                    colDiv.style.width = colWidth;
-                    // Add list items to column div:
-                    var i_start = c*Npercol;
-                    var i_end = Math.min( (c+1)*Npercol, Ntotal );
-                    for ( var i = i_start; i < i_end; i++ )
-                        colDiv.appendChild( listItems[0] ); // Using listItems[0] instead of listItems[i], because items are moved to colDiv!
-                    // Add column div to list:
-                    list.appendChild( colDiv );
-                }
-            }
-        }
-    } );
-    </script>
 </body>
 </html>

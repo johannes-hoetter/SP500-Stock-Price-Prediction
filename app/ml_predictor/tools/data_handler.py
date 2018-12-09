@@ -54,18 +54,20 @@ class DataHandler:
         np.savez(path, X=X, y=y)
 
         
-    def load_from_npz(self, symbol, path=''):
+    def load_from_npz(self, symbol, path='', max=None):
         if path == '':
             path = '../data/ml_format/{}.npz'.format(symbol)
         else:
-            path = path + '/{}.npz'.format(symbol)
+            path = os.path.join(path, '{}.npz'.format(symbol))
         try:
             with np.load(path) as data:
                 X = data['X']
                 y = data['y']
+            if max:
+                return X[-max:], y[-max:]
             return X, y
         except:
-            raise Exception("Can't load from path {}.".path)
+            raise Exception("Can't load from path {}.".format(path))
        
     
     def serialize(self, path='serialized_tool_objects/datahandler.p'):
@@ -74,10 +76,15 @@ class DataHandler:
     
     
     def initialize(self, path='serialized_tool_objects/datahandler.p'):
+        engine_path = None
+        if '\\' in path:
+            engine_path = os.path.join('\\'.join(path.split('\\')[:-3]), 'data', 'cleaned', '{}.db'.format(self.dbname))
         with open(path, 'rb') as file:
             self.dbname, self.symbols = pickle.load(file)
-            self.engine = create_engine('sqlite:///..//data/cleaned/{}.db'.format(self.dbname))
-            
+            if engine_path:
+                self.engine = create_engine('sqlite:///{}'.format(engine_path))
+            else:
+                self.engine = create_engine('sqlite:///..//data/cleaned/{}.db'.format(self.dbname))
    
     def get_symbols(self, data_dir='../data/raw'):
         if self.symbols is None:
