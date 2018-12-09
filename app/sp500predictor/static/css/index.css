@@ -35,7 +35,7 @@
  * Collapsibles
  */
 .collapsible {
-    background-color: #777;
+    background-color: #292c2f;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -47,7 +47,7 @@
 }
 
 .active, .collapsible:hover {
-    background-color: #555;
+    background-color: #292c2f;
 }
 
 .content {
@@ -82,6 +82,7 @@ h1 {
 
 .content_about, .content_how_to_use, .content_contact {
     padding-left: 20px;
+    width: 80%;
 }
 
 #sp500_image {
@@ -111,8 +112,17 @@ li {
 }
 
 .num_stocks, .name_stocks {
-    border: solid 2px grey;
+    border: solid 2px #292c2f;
 }
+
+.user_input_box {
+    padding-left: 15px;
+}
+
+#available_models_content {
+    margin-top: 20px;
+}
+
 /*
   Header CSS
   Taken from: https://demo.tutorialzine.com/2015/02/freebie-7-responsive-header-templates/index.html
@@ -236,4 +246,45 @@ li {
     margin-left: 3px;
 }
 
+/*
+  Tag Cloud for available Models
+  Taken from: https://codepen.io/nxworld/pen/ByGGPj
+ */
 
+.tagcloud ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+.tagcloud ul li {
+	float: left;
+	width: 70px;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+.tagcloud ul li a {
+	display: block;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	padding: 0 1em;
+	background-color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #333;
+	font-size: 13px;
+	text-decoration: none;
+	-webkit-transition: .2s;
+	transition: .2s;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.tagcloud ul li a:hover {
+	background-color: #5383d3;
+	border: 1px solid #5383d3;
+	color: #fff;
+}

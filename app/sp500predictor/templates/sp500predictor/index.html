@@ -22,9 +22,8 @@
 
 				<nav>
 					<a href="#application" class="selected">Application</a>
+                    <a href="#about">About</a>
 					<a href="#how_to_use">How to Use</a>
-					<a href="#about">About</a>
-					<a href="#contact">Contact</a>
 				</nav>
 			</div>
 
@@ -49,12 +48,12 @@
                             label: 'actual prices',
                             data: prices,
                             fill: false,
-                            borderColor: 'rgba(255, 99, 132, 0.2)'
+                            borderColor: '#454554'
                         },{
                             label: 'predicted prices',
                             data: preds,
                             fill: false,
-                            borderColor: 'rgba(0, 99, 132, 0.2)'
+                            borderColor: '#5383d3'
                         }]
                     },
                     options: {
@@ -86,7 +85,7 @@
                                 display: true,
                                 scaleLabel: {
                                     display: true,
-                                    labelString: 'Price per Share in USD'
+                                    labelString: 'Price per Share in USD [ADJUSTED]'
                                 }
                             }]
                         }
@@ -98,14 +97,15 @@
         <!-- User Input -->
         <div id="user_input">
             <div class="box name_stocks">
-                <h4>Give Stock Symbol as Input</h4>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ stock_form }}
-                    <button type="submit">Submit</button>
-                </form>
-                <p>Example: AMZN for Amazon Share</p>
-
+                <div class="user_input_box">
+                    <h4>Give Stock Symbol as Input</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ stock_form }}
+                        <button type="submit">Submit</button>
+                    </form>
+                    <p>Example: AMZN for Amazon Share</p>
+                </div>
                 <button class="collapsible">Results</button>
                     <div class="content">
                         <table>
@@ -124,14 +124,15 @@
             </div>
 
             <div class="box num_stocks">
-                <h4>Get Recommendations based on the AI</h4>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ num_form }}
-                    <button type="submit">Submit</button>
-                </form>
-                <p>If values below 1 are entered, each predictable Stock will be returned, the most profitable first.</p>
-
+                <div class="user_input_box">
+                    <h4>Get Recommendations based on the AI</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ num_form }}
+                        <button type="submit">Submit</button>
+                    </form>
+                    <p>If values below 1 are entered, each predictable Stock will be returned, the most profitable first.</p>
+                </div>
                 <button class="collapsible">Results</button>
                     <div class="content">
                         <table>
@@ -152,12 +153,12 @@
 
 
         <!-- List of Symbols which can be used as Input -->
-        <div id="available_models">
+        <div id="available_models" class="tagcloud">
             <button class="collapsible">Available Models for Stock Prediction</button>
-                <div class="content">
+                <div id="available_models_content" class="content">
                      <ul class="cols" rel="12">
                     {% for model in models %}
-                        <li>{{ model }}</li>
+                         <li><a>{{ model }}</a></li>
                     {% endfor %}
                      </ul>
                 </div>
@@ -166,20 +167,49 @@
     </div> <!-- End of application container -->
     <hr>
 
-    <div id="how_to_use" class="subheader"><h2>How to Use</h2></div>
-    <div class="content_how_to_use">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</div>
-
     <div id="about" class="subheader"><h2>About</h2></div>
-    <div class="content_about">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    <div class="content_about">
+        <p>
+            The Standard & Poor's 500 Predictor is part of the Capstone Project for Udacity's Data Scientist Nanodegree Program.
+            It's task is to give the user some recommendations which Company to invest in based on predictions of the model.
+            The model has been trained on OHLC-data (Open-High-Low-Close) for all the companies of the S&P 500 Index - therefore it's
+            able to generate precise predictions. To get even better precisions, the models have been filtered so that only those models,
+            which generate good predictions for history data get used. Therefore it's not possible (or not feasible) to predict prices for any Company
+            that has ever been in the S&P 500 Index. To get a better understanding, check the List of the available Models for Stock Prediction.
+            <br>
+            <br>
+            This application is a prototype / baseline for a future application which will provide more functionalities, better visualizations and a better User Interface.
+        </p>
+    </div>
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</div>
+    <div id="how_to_use" class="subheader"><h2>How to Use</h2></div>
+    <div class="content_how_to_use">
+        <p>
+            The Predictor can be used in two ways:
+            <ol>
+                <li>Give the <strong>Stock Symbol(s)</strong> as Input for the Model</li>
+                    <p>
+                        If you choose this way, the model will calculate the prices for each Stock you provide as an input.
+                        The first model you gave as an input will be displayed in a visualization: the model will show the prices it predicted for a
+                        given date compared to the actual prices that happened on that day. This should provide you some insights whether you trust
+                        the Predictor for this given model or not. The results can be seen by clicking on "Results".
+                        <br>
+                        <em>An example input string would be: FE AMZN GOOG</em>
 
-    <div id="contact" class="subheader"><h2>Contact</h2></div>
-    <div class="content_contact">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</div>
+                    </p>
+                <li>Select the <strong>Number of Recommandations</strong> the Model should provide</li>
+                    <p>
+                        If you don't care about a specific Share but rather want to get a number of recommendations of which the model thinks that
+                        the prices will rise within the next days, the second option is better for you. Given a number, the model will compare all
+                        predictions and calculate the relative ratio of profit. The list of models you get will be ordered from biggest profit predicted to lowest.
+                        If you give as a number 0 or smaller (i.e. a negative number), the model will give you the predictions of all stocks, but still ordered.
+                        The model with the highest calculated relative profit will be displayed in the visualization. The results can be seen by clicking on "Results".
+                        <br>
+                        <em>An example input would be: 5</em>
+                    </p>
+            </ol>
+        </p>
+    </div>
 
     <footer class="footer-distributed">
         <div class="footer-right">
