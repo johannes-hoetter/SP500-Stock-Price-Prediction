@@ -69,10 +69,91 @@ body {
 }
 
 header {
+    background-color: rgba(0,0,0,0.7); /*dim the background*/
+    margin-bottom: 50px;
 }
 
 h1 {
     margin-top: 0px;
+}
+
+
+/*
+  Sticky Header
+  Taken from: https://www.w3schools.com/howto/howto_js_sticky_header.asp
+ */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .container {
+  padding-top: 102px;
+}
+
+/*
+  Header CSS
+  Taken from: https://demo.tutorialzine.com/2015/02/freebie-7-responsive-header-templates/index.html
+ */
+
+.header-basic {
+	background-color: #292c2f;
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
+	padding: 20px 40px;
+	height: 80px;
+	box-sizing: border-box;
+}
+
+.header-basic .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* Logo */
+
+.header-basic .header-limiter h1 {
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+}
+
+.header-basic .header-limiter h1 span {
+	color: #5383d3;
+}
+
+/* The header links */
+
+.header-basic .header-limiter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header-basic .header-limiter nav{
+	font:16px Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	float: right;
+}
+
+.header-basic .header-limiter nav a{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	font-size: 16px;
+	opacity: 0.9;
+}
+
+.header-basic .header-limiter nav a:hover{
+	opacity: 1;
+}
+
+.header-basic .header-limiter nav a.selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
 }
 
 /*
@@ -134,3 +215,5 @@ h1 {
 
     margin-left: 3px;
 }
+
+
