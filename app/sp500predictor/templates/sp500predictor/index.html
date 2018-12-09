@@ -8,8 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -19,6 +21,7 @@
 
     <div class="container">
         <div id="sp500_image" class="box">
+            <!-- plot the visualizations for the given Stock -->
             <canvas id="stock_visualization" width="100" height="100"></canvas>
             <script>
                 var dates = {{ data_dates }};
@@ -137,7 +140,7 @@
 
 
         <!-- List of Symbols which can be used as Input -->
-        <div class="box">
+        <div id="available_models">
             <button class="collapsible">Available Models for Stock Prediction</button>
                 <div class="content">
                      <ul class="cols" rel="12">
@@ -149,8 +152,22 @@
         </div>
     </div> <!-- End of container -->
 
-    <footer>
+    <footer class="footer-distributed">
+        <div class="footer-right">
 
+            <a href="https://www.xing.com/profile/Johannes_Hoetter4/cv?sc_o=mxb_p"><i class="fab fa-xing"></i></a>
+            <a href="https://github.com/johannes-hoetter"><i class="fab fa-github"></i></a>
+
+        </div>
+
+        <div class="footer-left">
+
+            <p class="footer-links">
+                <!-- for future links -->
+            </p>
+
+            <p>Johannes Hötter &copy; 2018</p>
+        </div>
     </footer>
 
 

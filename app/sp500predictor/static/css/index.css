@@ -9,15 +9,26 @@
 }
 
 .box {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+#sp500_image {
+    width: 50%;
+}
+
+#available_models {
     width: 100%;
 }
 
 .name_stocks {
-    background-color: blue;
+    margin-top: 50px;
 }
 
 .num_stocks {
-    background-color: red;
+    margin-top: 80px;
 }
 
 /*
@@ -44,8 +55,82 @@
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
+
+
 }
 
 /*
  * Basic CSS
  */
+
+body {
+    margin: 0px;
+    font-family: Calibri;
+}
+
+header {
+}
+
+h1 {
+    margin-top: 0px;
+}
+
+/*
+  Footer CSS
+  Taken from: https://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates
+ */
+.footer-distributed{
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: normal 16px sans-serif;
+
+    padding: 45px 50px;
+    margin-top: 80px;
+}
+
+.footer-distributed .footer-left p{
+    color:  #8f9296;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed p.footer-links{
+    font-size:18px;
+    font-weight: bold;
+    color:  #ffffff;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color:  inherit;
+}
+
+.footer-distributed .footer-right{
+    float: right;
+    margin-top: 6px;
+    max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color:  #33383b;
+    border-radius: 2px;
+
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+
+    margin-left: 3px;
+}
