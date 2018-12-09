@@ -3,6 +3,8 @@ from django.forms import Form, TextInput, CharField
 
 class StockInputForm(forms.Form):
     stock_names = forms.CharField(label='Stock', required=False)
+    stock_names.label = ""
 
 class StockNumForm(forms.Form):
     num_stocks = forms.CharField(label='Number of Recommendations', required=False,  widget=TextInput(attrs={'type':'number'}))
+    num_stocks.label = ""

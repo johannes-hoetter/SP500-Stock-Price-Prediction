@@ -69,7 +69,6 @@ body {
 }
 
 header {
-    background-color: rgba(0,0,0,0.7); /*dim the background*/
     margin-bottom: 50px;
 }
 
@@ -77,6 +76,17 @@ h1 {
     margin-top: 0px;
 }
 
+.subheader {
+	padding: 10px;
+}
+
+.content_about, .content_how_to_use, .content_contact {
+    padding-left: 20px;
+}
+
+#sp500_image {
+    margin-left: 10px;
+}
 
 /*
   Sticky Header
@@ -92,6 +102,17 @@ h1 {
   padding-top: 102px;
 }
 
+hr {
+    margin: 0px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.num_stocks, .name_stocks {
+    border: solid 2px grey;
+}
 /*
   Header CSS
   Taken from: https://demo.tutorialzine.com/2015/02/freebie-7-responsive-header-templates/index.html
@@ -152,7 +173,6 @@ h1 {
 
 .header-basic .header-limiter nav a.selected {
 	color: #608bd2;
-	pointer-events: none;
 	opacity: 1;
 }
 
