@@ -4,6 +4,8 @@ Udacity's Data Scientist Nanodegree Program. The result (by now) is an applicati
 is able to provide stock price predictions for many of the Companies which are included
 in the [S&P 500 Index](https://eu.spindices.com/indices/equity/sp-500).
 
+If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf.h-brs.de
+
 ### 1. Project Motivation
 In the last project, we (the upcoming Data Scientists ;) ) were allowed to follow
 a topic we find interesting ourselves. As I'm interested in financial topics, I 
@@ -19,14 +21,158 @@ cleansing, what kind of structure my model needs to have, how I develop the app 
 I definitely learned a ton during this project even though the result is far away from perfect!
 As I said, I'm going to continue working on this application :)
 
-### 2. Installation
+### 2. Installation - only tested on Windows 10!
+To install this project, I'd recommend using Anaconda for virtual environments.
+There are several requirements (installed libraries) which your machine needs to have in
+order to run the application. I've provided a **requirements.txt** file which contains
+all of the dependencies except for **PyTorch**, which you'll have to **install manually**.
 
-##### 2.1 Requirements
+##### 2.1 Install dependencies in a virtual environment
+If you've got Anaconda installed, do the following to be able to run the application:
+1. Clone or Download the Repository onto your local machine.
+2. If you downloaded the Repository, unzip the files.
+3. Open a new Anaconda Prompt Shell and navigate to the project (SP500-Prediction).
+4. Create a new virtual environment typing the following: <br>
+`conda env create --name sp500 --file requirements.txt`.  
+ After that, you'll have installed 
+most of the needed dependencies automatically.
+5. To install the last dependency, do the following:   
+`activate sp500`  
+`conda install pytorch-cpu torchvision-cpu -c pytorch`
+6. Now you have all the dependencies installed. It's time to get the server up and running!
 
-
-##### 2.2 Package Dependencies
+##### 2.2 Run the Server
+If you're in the SP500 Order in the Shell (e.g. Anaconda Prompt), change the directory to 
+the app folder (`cd app`). From there, type the following:  
+`python manage.py runserver`.  
+**Caution, Known Bug!** It occured to me many times that the system didn't find the manage.py file at first.
+If this happens to you too, chances are that you have to retry (most of the cases it works directly, but don't
+be surprised if you need to start the server 5 times.. I'll try to fix this one as soon as possible, if possible).  
+The localhost will be used to run the application, so you can access the application using the given url. 
+<img src="images/runserver.JPG">
+Have fun trying out the prototype :)
 
 ### 3. File Descriptions
+```
+-SP500-Stock-Price-Prediction
+    |
+    |- app
+    |   |
+    |   |- app
+    |   |   |
+    |   |   |- __init__.py
+    |   |   |- settings.py
+    |   |   |- urls.py
+    |   |   |- wsgi.py
+    |   |
+    |   |- ml_predictor
+    |   |   |
+    |   |   |- data
+    |   |   |   |
+    |   |   |   |- cleaned
+    |   |   |   |   |
+    |   |   |   |   |- all stock data in a db (not contained in repo because of size!)
+    |   |   |   |
+    |   |   |   |- ml_format
+    |   |   |   |   |
+    |   |   |   |   |- all stock data in a .npz format
+    |   |   |   |
+    |   |   |   | - raw
+    |   |   |       |
+    |   |   |       |- all stock data as .csv files
+    |   |   |
+    |   |   |- machine_learning
+    |   |   |   |
+    |   |   |   |- archive
+    |   |   |   |
+    |   |   |   |- models
+    |   |   |   |   |
+    |   |   |   |   |- all models (as .pth files)
+    |   |   |   |
+    |   |   |   |- sp500
+    |   |   |   |   |
+    |   |   |   |   |- sp500 model as .pth file
+    |   |   |   |
+    |   |   |   |- stats
+    |   |   |   |   |
+    |   |   |   |   |- training_stats.p
+    |   |   |   |
+    |   |   |   |- __init__.py
+    |   |   |   |- ml_tools.py
+    |   |   |   |- model_development.py
+    |   |   |   |- Model_Development_Dev.ipynb
+    |   |   |   |- neuralnet.py
+    |   |   |   |- NeuralNet_Dev.ipynb
+    |   |   |   |- sp500.py
+    |   |   |   |- SP500Model_Dve.ipynb
+    |   |   |   
+    |   |   |- tools
+    |   |   |   |
+    |   |   |   |- archive
+    |   |   |   |
+    |   |   |   |- serialized_tool_objects
+    |   |   |   |   |
+    |   |   |   |   |- dataconverter.p
+    |   |   |   |   |- datahandler.p
+    |   |   |   |   |- stockdatacrawler.p
+    |   |   |   |
+    |   |   |   |- __init__.py
+    |   |   |   |- data_converter.py
+    |   |   |   |- data_handler.py
+    |   |   |   |- DataConverter_Dev.ipynb
+    |   |   |   |- DataHandler_Dev.ipynb
+    |   |   |   |- etl.py
+    |   |   |   |- ETLScript_Dev.ipynb
+    |   |   |   |- StockDataCrawler_Dev.ipynb
+    |   |   |   |- web_crawler.py
+    |   |   |   
+    |   |   |- __init__.py
+    |   |
+    |   |- sp500predictor
+    |   |   |
+    |   |   |- migrations
+    |   |   |   |
+    |   |   |   |- __init__.py
+    |   |   |   
+    |   |   |- static
+    |   |   |   |
+    |   |   |   |- css
+    |   |   |   |   |
+    |   |   |   |   |- index.css
+    |   |   |   |
+    |   |   |   |- javascript
+    |   |   |   |   |
+    |   |   |   |   |- collapse.js
+    |   |   |   |   |- multiple_column_lists.js
+    |   |   |   |   |- sticky_header.js
+    |   |   |   
+    |   |   |- templates
+    |   |   |   |
+    |   |   |   |- sp500predictor
+    |   |   |   |   |
+    |   |   |   |   |- includes
+    |   |   |   |   |- index.html
+    |   |   |   
+    |   |   |- __init__.py
+    |   |   |- admin.py
+    |   |   |- apps.py
+    |   |   |- forms.py
+    |   |   |- models.py
+    |   |   |- tests.py
+    |   |   |- urls.py
+    |   |   |- views.py
+    |   |   
+    |   |- manage.py
+    |   |- requirements.txt
+    |   
+    |- images
+    |   |
+    |   |- runserver.jpg  
+    |
+    |- .gitattributes
+    |- .gitignore
+    |- README
+```
 
 ### 4. Technologies used
 The project itself doesn't consist of pure Python. I used several frameworks or libraries - 
