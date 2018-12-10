@@ -49,7 +49,7 @@ the app folder (`cd app`). From there, type the following:
 If this happens to you too, chances are that you have to retry (most of the cases it works directly, but don't
 be surprised if you need to start the server 5 times.. I'll try to fix this one as soon as possible, if possible).  
 The localhost will be used to run the application, so you can access the application using the given url (in the screenshot
-below it's localhost:8000)
+below it's localhost:8000)  
 <img src="images/runserver.JPG">  
 Have fun trying out the prototype :)
 
