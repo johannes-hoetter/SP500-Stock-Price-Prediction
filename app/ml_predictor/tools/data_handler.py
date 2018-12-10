@@ -39,7 +39,7 @@ class DataHandler:
             return pd.read_sql_table(symbol, con=self.engine)
         except:
             raise Exception("No Connection to Database available.")
-    
+
     
     # Machine Learning Format
     def save_to_npz(self, X, y, symbol, save_dir=''):
@@ -68,8 +68,16 @@ class DataHandler:
             return X, y
         except:
             raise Exception("Can't load from path {}.".format(path))
-       
-    
+
+
+    def load_from_csv(self, symbol, path=''):
+        if path == '':
+            path = '../data/raw/{}.csv'.format(symbol)
+        else:
+            path = os.path.join(path, '{}.csv'.format(symbol))
+        return pd.read_csv(path)
+
+
     def serialize(self, path='serialized_tool_objects/datahandler.p'):
         with open(path, 'wb') as file:
             pickle.dump([self.dbname, self.symbols], file)

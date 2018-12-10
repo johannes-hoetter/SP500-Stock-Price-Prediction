@@ -89,12 +89,8 @@ def get_data_for_chart(symbol):
     pred_prices = list(sp500predictor.predict_history(symbol, path=path, max=365).values())[0]
     _, real_prices = data_handler.load_from_npz(symbol, path=path, max=365)
     real_prices = real_prices.tolist()
-    df = data_handler.load_from_db(symbol)
-    df.sort_values(by=['Year', 'Month', 'Day'], inplace=True)
-    df = df.iloc[-365:]
-    days = df['Day'].apply(lambda x: str(x))
-    months = df['Month'].apply(lambda x: str(x))
-    years = df['Year'].apply(lambda x: str(x))
-    dates = [int("{}{}{}".format(day.zfill(2), month.zfill(2), year)) for day, month, year in zip(days, months, years)]
-    #dates = [i for i in range(len(real_prices))]
+    path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'raw')
+    df = data_handler.load_from_csv(symbol, path)
+    dates = [int("{}".format(date.replace('-', ''))) for date in df['Date']]
+    dates = sorted(dates[:365])
     return real_prices, pred_prices, dates, symbol
