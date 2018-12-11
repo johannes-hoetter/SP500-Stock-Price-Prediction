@@ -17,6 +17,7 @@ If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf
 6. Technologies used
 7. Acknowledgements
 
+---
 
 ### 1. Project Motivation
 In the last project, we (the upcoming Data Scientists ;) ) were allowed to follow
