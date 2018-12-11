@@ -1,6 +1,9 @@
-# author: Johannes Hötter (https://github.com/johannes-hoetter)
-# version: 1.0
-# last updated on: 05/12/2018
+"""
+- author: Johannes Hötter (https://github.com/johannes-hoetter)
+- version: 1.0
+- last updated on: 05/12/2018
+
+"""
 
 import pandas as pd # for dataframe operations
 import datetime # to convert columns in the dataframe
@@ -95,4 +98,7 @@ class DataConverter():
 
             
     def __repr__(self):
+        """
+        :return (string): string representation of the Object
+        """
         return 'DataConverter()'
