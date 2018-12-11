@@ -39,21 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="etl.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="etl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/etl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web_crawler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+            <state relative-caret-position="1026">
+              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -96,7 +86,6 @@
         <option value="$PROJECT_DIR$/app/sp500predictor/static/javascript/sticky_header.js" />
         <option value="$PROJECT_DIR$/app/sp500predictor/static/css/index.css" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py" />
-        <option value="$PROJECT_DIR$/app/ml_predictor/tools/etl.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/ml_tools.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py" />
@@ -106,6 +95,7 @@
         <option value="$PROJECT_DIR$/app/sp500predictor/forms.py" />
         <option value="$PROJECT_DIR$/app/sp500predictor/views.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py" />
+        <option value="$PROJECT_DIR$/app/ml_predictor/tools/etl.py" />
       </list>
     </option>
   </component>
@@ -598,14 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/etl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1236">
@@ -618,6 +600,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/etl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding />
         </state>
       </provider>
