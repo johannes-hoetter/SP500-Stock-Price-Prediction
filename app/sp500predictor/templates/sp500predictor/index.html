@@ -14,12 +14,10 @@
 
 </head>
 <body>
+        <!-- Sticky Header which stays even when scrolling -->
 		<header id="sticky_header" class="header-basic">
-
 			<div class="header-limiter">
-
 				<h1><a href="#">Standard & Poor's 500 <span>Predictor</span></a></h1>
-
 				<nav>
 					<a href="#application" class="selected">Application</a>
                     <a href="#about">About</a>
@@ -29,6 +27,7 @@
 
 		</header>
 
+    <!-- Container for the main application -->
     <div id="application" class="container">
         <br>
         <div id="sp500_image" class="box">
@@ -96,6 +95,7 @@
 
         <!-- User Input -->
         <div id="user_input">
+            <!-- User gives Stock Symbols as Input Data -->
             <div class="box name_stocks">
                 <div class="user_input_box">
                     <h4>Give Stock Symbol as Input</h4>
@@ -122,7 +122,7 @@
                         </table>
                     </div>
             </div>
-
+            <!-- User gives Number of Recommendations as Input Data -->
             <div class="box num_stocks">
                 <div class="user_input_box">
                     <h4>Get Recommendations based on the AI</h4>
@@ -150,23 +150,22 @@
                     </div>
             </div>
         </div>
-
-
         <!-- List of Symbols which can be used as Input -->
         <div id="available_models" class="tagcloud">
             <button class="collapsible">Available Models for Stock Prediction</button>
                 <div id="available_models_content" class="content">
                      <ul class="cols" rel="12">
-                    {% for model in models %}
+                         <!-- get all models -->
+                        {% for model in models %}
                          <li><a>{{ model }}</a></li>
-                    {% endfor %}
+                        {% endfor %}
                      </ul>
                 </div>
         </div>
-
     </div> <!-- End of application container -->
     <hr>
 
+    <!-- Some explaination about the project -->
     <div id="about" class="subheader"><h2>About</h2></div>
     <div class="content_about">
         <p>
@@ -182,6 +181,7 @@
         </p>
     </div>
 
+    <!-- Instructions -->
     <div id="how_to_use" class="subheader"><h2>How to Use</h2></div>
     <div class="content_how_to_use">
         <p>
@@ -211,25 +211,22 @@
         </p>
     </div>
 
+    <!-- Footer with Links -->
     <footer class="footer-distributed">
         <div class="footer-right">
-
             <a href="https://www.xing.com/profile/Johannes_Hoetter4/cv?sc_o=mxb_p"><i class="fab fa-xing"></i></a>
             <a href="https://github.com/johannes-hoetter"><i class="fab fa-github"></i></a>
-
         </div>
-
         <div class="footer-left">
-
             <p class="footer-links">
                 <!-- for future links -->
             </p>
-
             <p>Johannes Hötter &copy; 2018</p>
         </div>
     </footer>
 
 
+    <!-- JavaScript Files -->
     <script src="{% static 'javascript/sticky_header.js' %}"></script>
     <script src="{% static 'javascript/collapse.js' %}"></script>
     <script src="{% static 'javascript/multiple_column_lists.js' %}"></script>

@@ -19,43 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ml_tools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/ml_tools.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="121" column="89" lean-forward="false" selection-start-line="121" selection-start-column="89" selection-end-line="121" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sp500.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/sp500.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1077">
-              <caret line="154" column="37" lean-forward="false" selection-start-line="154" selection-start-column="37" selection-end-line="154" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model_development.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1111">
-              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="neuralnet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1043">
-              <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+            <state relative-caret-position="2873">
+              <caret line="230" column="65" lean-forward="false" selection-start-line="230" selection-start-column="65" selection-end-line="230" selection-end-column="65" />
               <folding>
-                <element signature="e#268#280#0" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -100,13 +70,13 @@
         <option value="$PROJECT_DIR$/app/sp500predictor/static/css/index.css" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/etl.py" />
-        <option value="$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html" />
         <option value="$PROJECT_DIR$/app/sp500predictor/views.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/ml_tools.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/sp500.py" />
+        <option value="$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html" />
       </list>
     </option>
   </component>
@@ -152,14 +122,22 @@
               <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
               <item name="SP500-Stock-Price-Prediction" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ml_predictor" type="462c0819:PsiDirectoryNode" />
+              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
               <item name="SP500-Stock-Price-Prediction" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ml_predictor" type="462c0819:PsiDirectoryNode" />
-              <item name="machine_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SP500-Stock-Price-Prediction" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
@@ -540,17 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="113" column="70" lean-forward="false" selection-start-line="113" selection-start-column="70" selection-end-line="113" selection-end-column="70" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#10401#10407#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/sp500predictor/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -582,6 +549,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/ml_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="121" column="89" lean-forward="false" selection-start-line="121" selection-start-column="89" selection-end-line="121" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/sp500.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1077">
+          <caret line="154" column="37" lean-forward="false" selection-start-line="154" selection-start-column="37" selection-end-line="154" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1111">
@@ -600,19 +583,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/ml_tools.py">
+    <entry file="file://$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="121" column="89" lean-forward="false" selection-start-line="121" selection-start-column="89" selection-end-line="121" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/sp500.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1077">
-          <caret line="154" column="37" lean-forward="false" selection-start-line="154" selection-start-column="37" selection-end-line="154" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="2873">
+          <caret line="230" column="65" lean-forward="false" selection-start-line="230" selection-start-column="65" selection-end-line="230" selection-end-column="65" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
