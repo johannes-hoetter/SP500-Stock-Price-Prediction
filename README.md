@@ -53,7 +53,24 @@ below it's localhost:8000)
 <img src="images/runserver.JPG">  
 Have fun trying out the prototype :)
 
-### 3. File Descriptions
+### 3. How to Use
+There are mainly three things you can do with the scripts of this repository:
+1. Download, transform and store finance data using the [Quandl API](https://www.quandl.com/). For this, enter the
+path where the etl.py script lies (app/ml_predictor/tools) and then type into your console `python etl.py`.  
+<img src="images/etl.jpg">
+2. Train machine learning models using. For this, enter the path where the model_development.py script lies 
+(app/ml_predictor/machine_learning) and type into your console `python model_development.py`.   
+<img src="images/train.jpg">  
+**Caution**: This can 
+and will take up to several hours depending on your machine - there are roughly 500 models which get trained, each of
+those for 50 epochs; for you to be able to start the application right away, I've already included all the models in 
+this repository, so that you don't have to run either of the first two steps. However, if you want to, you can of course.  
+<img src="images/time_needed.jpg">   
+In the future, I'm going to add some parameters to both scripts, so that you can easily decide whether you want to train all models,
+for which time etc. Right now, you have to use the whole script :)
+3. Run the server (see above, 2.2 Run the Server). 
+
+### 4. File Descriptions
 ```
 -SP500-Stock-Price-Prediction
     |
@@ -168,14 +185,16 @@ Have fun trying out the prototype :)
     |   
     |- images
     |   |
+    |   |- etl.jpg
     |   |- runserver.jpg  
+    |   |- train.jpg
     |
     |- .gitattributes
     |- .gitignore
     |- README
 ```
 
-### 4. Technologies used
+### 5. Technologies used
 The project itself doesn't consist of pure Python. I used several frameworks or libraries - 
 the most important ones are the following:
 - Pandas: Handling Data
@@ -184,7 +203,7 @@ the most important ones are the following:
 - Chart.js: Visualizations in the App itself
 - several more (like NumPy, Matplotlib, SQLAlchemy, ...)
 
-### 5. Acknowledgements
+### 6. Acknowledgements
 I'd like to mention the help I got from many Stackoverflow Posts which helped me in a lot of
 situations. Every part of code which I took or which inspired me to code in a certain way is
 commented in the section of the app where it's used.  

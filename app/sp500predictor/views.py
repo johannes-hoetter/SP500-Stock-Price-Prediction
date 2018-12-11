@@ -27,8 +27,15 @@ def index(request):
     # TODO:
     # application logic out of views!
     preds = {}
-    data_prices, data_predictions, data_dates, symbol = get_data_for_chart('AMZN')
-    tomorrow = get_next_date('AMZN')
+    # if available, display amazon as first company (as this is a known company)
+    try:
+        data_prices, data_predictions, data_dates, symbol = get_data_for_chart('AMZN')
+        tomorrow = get_next_date('AMZN')
+    except:
+        first_model = list(sp500predictor.useable_models)[0]
+        data_prices, data_predictions, data_dates, symbol = get_data_for_chart(first_model)
+        tomorrow = get_next_date(first_model)
+
     if request.method == 'POST':
         if 'stock_names' in request.POST:
             stock_form = StockInputForm(request.POST)
