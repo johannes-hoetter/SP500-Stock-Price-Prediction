@@ -64,7 +64,7 @@ class StockDataCrawler():
     
     def initialize(self, path='serialized_tool_objects/stockdatacrawler.p'):
         """
-        Load the models attributes
+        Load the crawlers attributes
         :param path (string): path where the model has been serialized to
         :return:
         """

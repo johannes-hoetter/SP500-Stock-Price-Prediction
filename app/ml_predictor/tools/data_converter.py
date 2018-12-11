@@ -3,6 +3,7 @@
 - version: 1.0
 - last updated on: 05/12/2018
 
+Converts the Data from Source Format to Target / Machine Learning Format
 """
 
 import pandas as pd # for dataframe operations
@@ -16,13 +17,23 @@ from collections import OrderedDict
 import numpy as np
 
 class DataConverter():
-    
+    """
+    Transforms Data from the raw structure to the target structure, so that Machine Learning can be applied on the data.
+    """
     
     def __init__(self):
+        """
+        Initialize the DataConverter
+        """
         self.scalers = {}
     
     
     def convert_df(self, df):
+        """
+
+        :param df:
+        :return:
+        """
         # replace whitespaces in columns with underscores
         df.columns = [col.replace(' ', '_') for col in df.columns]
         
@@ -36,6 +47,11 @@ class DataConverter():
     
     
     def fill_targets(self, df):
+        """
+
+        :param df:
+        :return:
+        """
         # for each date (except the last one), get the adjusted close price from the next date
         df.sort_values(by=['Year', 'Month', 'Day'], inplace=True) # dates in right order
         next_day_adj_close = df['Adj._Close'].iloc[1:] # get the prices of the next day
@@ -47,6 +63,13 @@ class DataConverter():
     
     
     def convert_ml_format(self, df, symbol, target='Adj._Close_next'):
+        """
+
+        :param df:
+        :param symbol:
+        :param target:
+        :return:
+        """
         X = df.drop(target, axis=1).values # whole df except last column (which is the target)
         y = df[target].values # only target column
         scaler = StandardScaler()
@@ -56,6 +79,12 @@ class DataConverter():
     
     
     def convert_x(self, x, symbol):
+        """
+
+        :param x:
+        :param symbol:
+        :return:
+        """
         '''
         Example - MUST KEEP THE KEY-ORDER!:
         x = {
@@ -88,11 +117,19 @@ class DataConverter():
     
     
     def serialize(self, path='serialized_tool_objects/dataconverter.p'):
+        """
+
+        :param path:
+        """
         with open(path, 'wb') as file:
             pickle.dump(self.scalers, file)
     
     
     def initialize(self, path='serialized_tool_objects/dataconverter.p'):
+        """
+
+        :param path:
+        """
         with open(path, 'rb') as file:
             self.scalers = pickle.load(file)
 
