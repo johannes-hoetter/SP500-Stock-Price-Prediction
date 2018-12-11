@@ -1,7 +1,10 @@
 # Stock-Price-Prediction
 This Repository contains the application for the Capstone Project of
 Udacity's Data Scientist Nanodegree Program. The result (by now) is an application which 
-is able to provide stock price predictions for many of the Companies which are included
+is able to provide stock price predictions for many of the Companies which are included  
+
+<img src="images/example_screenshot.JPG">  
+
 in the [S&P 500 Index](https://eu.spindices.com/indices/equity/sp-500).
 
 If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf.h-brs.de
@@ -70,7 +73,11 @@ In the future, I'm going to add some parameters to both scripts, so that you can
 for which time etc. Right now, you have to use the whole script :)
 3. Run the server (see above, 2.2 Run the Server). 
 
-### 4. File Descriptions
+### 4. Recommendations
+For proper usage of the application, I'd recommend a window width of 1300px or above (in Chrome, press F12 to see the size of the browser).  
+I didn't include any files by now that make the application responsive, therefore it's best to use it in fullscreen format on a notebook or so.
+
+### 5. File Descriptions
 ```
 -SP500-Stock-Price-Prediction
     |
@@ -194,7 +201,7 @@ for which time etc. Right now, you have to use the whole script :)
     |- README
 ```
 
-### 5. Technologies used
+### 6. Technologies used
 The project itself doesn't consist of pure Python. I used several frameworks or libraries - 
 the most important ones are the following:
 - Pandas: Handling Data
@@ -203,7 +210,7 @@ the most important ones are the following:
 - Chart.js: Visualizations in the App itself
 - several more (like NumPy, Matplotlib, SQLAlchemy, ...)
 
-### 6. Acknowledgements
+### 7. Acknowledgements
 I'd like to mention the help I got from many Stackoverflow Posts which helped me in a lot of
 situations. Every part of code which I took or which inspired me to code in a certain way is
 commented in the section of the app where it's used.  
