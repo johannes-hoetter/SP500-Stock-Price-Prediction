@@ -11,3 +11,9 @@ V
 &app/ml_predictor/tools/data_handler.py,5\d\5d1004d5d809b62d014f7e30308e0ddbeabf0b7a
 K
 app/sp500predictor/views.py,4\0\4006975c09f033f4b96cd9022ba450b71c310515
+M
+app/ml_predictor/tools/etl.py,0\1\01508c49b0d0ae117d67fb2cc974ad8323c062ab
+a
+1app/ml_predictor/tools/StockDataCrawler_Dev.ipynb,b\d\bd9c78975a482e5db7cca1917abbbaa49cafd777
+f
+6app/ml_predictor/machine_learning/model_development.py,e\e\ee1caa75115e793163377e42c74544760f6cc8b1

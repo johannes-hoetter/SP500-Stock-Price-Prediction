@@ -1,13 +1,22 @@
 # Stock-Price-Prediction
 This Repository contains the application for the Capstone Project of
 Udacity's Data Scientist Nanodegree Program. The result (by now) is an application which 
-is able to provide stock price predictions for many of the Companies which are included  
+is able to provide stock price predictions for many of the Companies which are included 
+in the [S&P 500 Index](https://eu.spindices.com/indices/equity/sp-500).
 
 <img src="images/example_screenshot.JPG">  
 
-in the [S&P 500 Index](https://eu.spindices.com/indices/equity/sp-500).
-
 If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf.h-brs.de
+
+##  Table of Contents
+1. Project Motivation
+2. Installation
+3. How to Use
+4. Recommendations
+5. File Descriptions
+6. Technologies used
+7. Acknowledgements
+
 
 ### 1. Project Motivation
 In the last project, we (the upcoming Data Scientists ;) ) were allowed to follow
