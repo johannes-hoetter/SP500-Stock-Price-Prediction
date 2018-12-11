@@ -57,15 +57,15 @@ Have fun trying out the prototype :)
 There are mainly three things you can do with the scripts of this repository:
 1. Download, transform and store finance data using the [Quandl API](https://www.quandl.com/). For this, enter the
 path where the etl.py script lies (app/ml_predictor/tools) and then type into your console `python etl.py`.  
-<img src="images/etl.jpg">
+<img src="images/etl.JPG">
 2. Train machine learning models using. For this, enter the path where the model_development.py script lies 
 (app/ml_predictor/machine_learning) and type into your console `python model_development.py`.   
-<img src="images/train.jpg">  
+<img src="images/train.JPG">  
 **Caution**: This can 
 and will take up to several hours depending on your machine - there are roughly 500 models which get trained, each of
 those for 50 epochs; for you to be able to start the application right away, I've already included all the models in 
 this repository, so that you don't have to run either of the first two steps. However, if you want to, you can of course.  
-<img src="images/time_needed.jpg">   
+<img src="images/time_needed.JPG">   
 In the future, I'm going to add some parameters to both scripts, so that you can easily decide whether you want to train all models,
 for which time etc. Right now, you have to use the whole script :)
 3. Run the server (see above, 2.2 Run the Server). 
