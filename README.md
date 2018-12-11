@@ -9,13 +9,15 @@ in the [S&P 500 Index](https://eu.spindices.com/indices/equity/sp-500).
 If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf.h-brs.de
 
 ##  Table of Contents
-1. [Project Motivation](#1.-project-motivation)
-2. [Installation](#2.-installation---only-tested-on-windows-10!)
-3. [How to Use](#3.-how-to-use)
-4. [Recommendations](#4.-recommendations)
-5. [File Descriptions](#5.-file-descriptions)
-6. [Technologies used](#6.-technologies-used)
-7. [Acknowledgements](#7.-acknowledgements)
+- [1. Project Motivation](#1-project-motivation)
+- [2. Installation - only tested on Windows 10!](#2-installation---only-tested-on-windows-10-)
+    + [2.1 Install dependencies in a virtual environment](#21-install-dependencies-in-a-virtual-environment)
+    + [2.2 Run the Server](#22-run-the-server)
+- [3. How to Use](#3-how-to-use)
+- [4. Recommendations](#4-recommendations)
+- [5. File Descriptions](#5-file-descriptions)
+- [6. Technologies used](#6-technologies-used)
+- [7. Acknowledgements](#7-acknowledgements)
 
 ---
 
