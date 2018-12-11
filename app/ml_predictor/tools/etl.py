@@ -55,12 +55,8 @@ def convert_first_row_as_header(df):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        print("TODO")
-        pass
-    else:
-        sp500_data = get_sp500_data()
-        crawler = StockDataCrawler(sp500_data)
-        converter = DataConverter()
-        data_handler = DataHandler()
-        full_etl(crawler, converter, data_handler)
+    sp500_data = get_sp500_data()
+    crawler = StockDataCrawler(sp500_data)
+    converter = DataConverter()
+    data_handler = DataHandler()
+    full_etl(crawler, converter, data_handler)

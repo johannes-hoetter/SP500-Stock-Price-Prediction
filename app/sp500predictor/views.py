@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import StockInputForm, StockNumForm
+from datetime import datetime, timedelta
 
 # make the sp500 module available
 import sys
@@ -27,6 +28,7 @@ def index(request):
     # application logic out of views!
     preds = {}
     data_prices, data_predictions, data_dates, symbol = get_data_for_chart('AMZN')
+    tomorrow = get_next_date('AMZN')
     if request.method == 'POST':
         if 'stock_names' in request.POST:
             stock_form = StockInputForm(request.POST)
@@ -41,6 +43,7 @@ def index(request):
                         print("Tried prediction for {}, which isn't contained in Model.".format(stock))
                 try:
                     data_prices, data_predictions, data_dates, symbol = get_data_for_chart(list(preds)[0])
+                    tomorrow = get_next_date(list(preds)[0])
                 except:
                     pass
         elif 'num_stocks' in request.POST:
@@ -65,12 +68,12 @@ def index(request):
                     print("No Input given for num_form even though submitted")
                 try:
                     data_prices, data_predictions, data_dates, symbol = get_data_for_chart(list(preds)[0])
+                    tomorrow = get_next_date(list(preds)[0])
                 except:
                     pass
     else:
         stock_form = StockInputForm()
         num_form = StockNumForm()
-
 
     request_dict = {
         'stock_form': stock_form,
@@ -80,7 +83,8 @@ def index(request):
         'data_prices': data_prices,
         'data_preds': data_predictions,
         'data_dates': data_dates,
-        'data_symbol': symbol
+        'data_symbol': symbol,
+        'tomorrow': tomorrow
     }
     return render(request, 'sp500predictor/index.html', request_dict)
 
@@ -94,3 +98,12 @@ def get_data_for_chart(symbol):
     dates = [int("{}".format(date.replace('-', ''))) for date in df['Date']]
     dates = sorted(dates[:365])
     return real_prices, pred_prices, dates, symbol
+
+def get_next_date(symbol):
+    path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'raw')
+    df = data_handler.load_from_csv(symbol, path)
+    date = str(max([int("{}".format(date.replace('-', ''))) for date in df['Date']]))
+    date = datetime.strptime(date, '%Y%m%d') + timedelta(days=1)
+    date = str(date.year) + " " +  str(date.month).zfill(2) + " " + str(date.day).zfill(2)
+    return date
+

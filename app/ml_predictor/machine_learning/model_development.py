@@ -14,10 +14,14 @@ try:
 except:
     import pickle
 
+import sys
+sys.path.append("..")
+sys.path.append(".")
+
 # Custom Modules
 from tools.data_handler import DataHandler
-from .ml_tools import MLDataWrapper
-from .neuralnet import NeuralNetwork
+from ml_tools import MLDataWrapper
+from neuralnet import NeuralNetwork
 
 if __name__ == '__main__':
 
