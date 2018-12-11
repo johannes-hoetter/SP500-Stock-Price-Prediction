@@ -56,7 +56,7 @@ class StockDataCrawler():
     def serialize(self, path='serialized_tool_objects/stockdatacrawler.p'):
         """
         Save the Crawler to a pickle file
-        :param path (string): path to the location where the model gets serialized to
+        :param path (string): path to the location where the crawler gets serialized to
         """
         with open(path, 'wb') as file:
             pickle.dump(self.df, file)
@@ -65,7 +65,7 @@ class StockDataCrawler():
     def initialize(self, path='serialized_tool_objects/stockdatacrawler.p'):
         """
         Load the crawlers attributes
-        :param path (string): path where the model has been serialized to
+        :param path (string): path where the crawler has been serialized to
         :return:
         """
         with open(path, 'rb') as file:

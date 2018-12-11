@@ -118,8 +118,8 @@ class DataConverter():
     
     def serialize(self, path='serialized_tool_objects/dataconverter.p'):
         """
-
-        :param path:
+        Save the Converter to a pickle file
+        :param path (string): path to the location where the converter gets serialized to
         """
         with open(path, 'wb') as file:
             pickle.dump(self.scalers, file)
@@ -127,8 +127,9 @@ class DataConverter():
     
     def initialize(self, path='serialized_tool_objects/dataconverter.p'):
         """
-
-        :param path:
+        Load the converters attributes
+        :param path (string): path where the converter has been serialized to
+        :return:
         """
         with open(path, 'rb') as file:
             self.scalers = pickle.load(file)
