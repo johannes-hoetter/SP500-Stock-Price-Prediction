@@ -19,21 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="data_converter.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="data_converter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="130" column="54" lean-forward="false" selection-start-line="130" selection-start-column="54" selection-end-line="130" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web_crawler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="805">
-              <caret line="58" column="68" lean-forward="false" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
+            <state relative-caret-position="941">
+              <caret line="129" column="38" lean-forward="true" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -85,8 +75,8 @@
         <option value="$PROJECT_DIR$/app/sp500predictor/views.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/etl.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py" />
-        <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py" />
+        <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py" />
       </list>
     </option>
   </component>
@@ -587,18 +577,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="130" column="54" lean-forward="false" selection-start-line="130" selection-start-column="54" selection-end-line="130" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="805">
           <caret line="58" column="68" lean-forward="false" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="941">
+          <caret line="129" column="38" lean-forward="true" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
           <folding />
         </state>
       </provider>

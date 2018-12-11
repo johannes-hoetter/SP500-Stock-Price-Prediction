@@ -30,9 +30,9 @@ class DataConverter():
     
     def convert_df(self, df):
         """
-
-        :param df:
-        :return:
+        convert a dataframe from source structure to target structure (splits datestamps)
+        :param df (pandas dataframe): source dataframe
+        :return pandas dataframe: target dataframe
         """
         # replace whitespaces in columns with underscores
         df.columns = [col.replace(' ', '_') for col in df.columns]
@@ -48,9 +48,9 @@ class DataConverter():
     
     def fill_targets(self, df):
         """
-
-        :param df:
-        :return:
+        gets the price for the share for the next date for each row except the last one - the last gets dropped
+        :param df (pandas dataframe): dataframe containing the financial data
+        :return pandas dataframe: dataframe with targets for machine learning
         """
         # for each date (except the last one), get the adjusted close price from the next date
         df.sort_values(by=['Year', 'Month', 'Day'], inplace=True) # dates in right order
@@ -64,11 +64,11 @@ class DataConverter():
     
     def convert_ml_format(self, df, symbol, target='Adj._Close_next'):
         """
-
-        :param df:
-        :param symbol:
-        :param target:
-        :return:
+        converts the dataframe into the known two array X and y containing the inputs and the labels for machine learning.
+        :param df (pandas dataframe):   source dataframe after conversion and after targets have been filled
+        :param symbol (string):         string representation of the stock (e.g. "AMZN" for Amazon)
+        :param target (string):         column of the dataframe which contains the targets
+        :return numpy array, numpy array: X, y
         """
         X = df.drop(target, axis=1).values # whole df except last column (which is the target)
         y = df[target].values # only target column
@@ -80,10 +80,10 @@ class DataConverter():
     
     def convert_x(self, x, symbol):
         """
-
-        :param x:
-        :param symbol:
-        :return:
+        convert a single input so that it fits to the training data (scalewise)
+        :param x (dictionary):      contains the values
+        :param symbol (string):     string representation of the stock (e.g. "AMZN" for Amazon)
+        :return numpy array: array in machine learning format
         """
         '''
         Example - MUST KEEP THE KEY-ORDER!:
