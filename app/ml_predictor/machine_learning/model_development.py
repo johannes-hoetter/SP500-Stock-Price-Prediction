@@ -1,6 +1,12 @@
-# author: Johannes Hötter (https://github.com/johannes-hoetter)
-# version: 1.0
-# last updated on: 02/12/2018
+"""
+- author: Johannes Hötter (https://github.com/johannes-hoetter)
+- version: 1.0
+- last updated on: 02/12/2018
+
+This file contains the logic for model development. Use this script to generate models which can be used for stock price
+analytics / prediction. Saves each model als a .pth file.
+"""
+
 
 import torch
 from torch import optim
@@ -14,6 +20,7 @@ try:
 except:
     import pickle
 
+# needed for import statements, workaround
 import sys
 sys.path.append("..")
 sys.path.append(".")
@@ -23,31 +30,41 @@ from tools.data_handler import DataHandler
 from ml_tools import MLDataWrapper
 from neuralnet import NeuralNetwork
 
-if __name__ == '__main__':
+if __name__ == '__main__': # if the script is directly called
 
+    # find out whether PyTorch can use a gpu or must use a cpu
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
+    # DataHandler used to load the cleaned ml data
     data_handler = DataHandler()
     data_handler.initialize(path='../tools/serialized_tool_objects/datahandler.p')
+
+    # get all the data which will be used for all models, and save the data in a dictionary:
+    # the dictionary has the following structure:
+    # data['AAPL'] -> dataloader for AAPL, which is again a dictionary
+    # therefore it can be used as data['AAPL']['train'], or data['AAPL']['test']
     data = {}
-    mean_price = {}
+    mean_price = {} # mean price will be used to check whether the model is near the real price
+                    # e.g. a RMSE of 10 is much better for a company which has a price of 1000 USD per share than a
+                    # company which has a price of 10 USD per share.
     for symbol in data_handler.symbols:
         X, y = data_handler.load_from_npz(symbol)
         mean_price[symbol] = np.mean(y[-365:])  # avg price of the stock in last year
-        ml_data_wrapper = MLDataWrapper(X, y)
+        ml_data_wrapper = MLDataWrapper(X, y) # wrap the Data
         data_loader = ml_data_wrapper.get_dataloader(train_batch_size=64)  # default train/test size of 0.75 to 0.25
-        data[symbol] = data_loader
+        data[symbol] = data_loader  # store the dataloader in the dictionary, so that we can get the dataloaders when we
+                                    # adress data[symbol]
 
-    # Hyperparameter
+    # Hyperparameter for Model Training
     alpha = 0.01  # Learning Rate, model uses learning rate decay (95% of last alpha in each epoch)
     num_epochs = 100
     print_every = 30
     dropout_prob = 0.3
 
-    num_inputs = ml_data_wrapper.shape[1]
+    num_inputs = ml_data_wrapper.shape[1] # number of features the model has
     print("The models have {} input nodes".format(num_inputs))
 
-    stats = {}
+    stats = {} # will later on be saved, saves several statistics during the training process like the best RMSE etc.
     start = timeit.default_timer()
 
     # for each symbol, train a new neural network and save it in a folder
@@ -65,7 +82,7 @@ if __name__ == '__main__':
         improved, first_test_rmse, best_test_rmse, seconds = \
             model.fit(dataloader, symbol, optimizer, criterion, num_epochs, print_every=print_every)
 
-        # Create some statistics (maybe used later on)
+        # Create some statistics (not all of them will be used actively later on)
         if improved:
             stats[symbol]['learned_significantly'] = 'X'
         else:
