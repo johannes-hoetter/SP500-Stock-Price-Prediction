@@ -19,14 +19,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/sp500predictor/views.py">
+      <file leaf-file-name="data_converter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="958">
-              <caret line="128" column="7" lean-forward="true" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_handler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1236">
+              <caret line="76" column="45" lean-forward="false" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="etl.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/etl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web_crawler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="969">
+              <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,6 +105,7 @@
         <option value="$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html" />
         <option value="$PROJECT_DIR$/app/sp500predictor/forms.py" />
         <option value="$PROJECT_DIR$/app/sp500predictor/views.py" />
+        <option value="$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py" />
       </list>
     </option>
   </component>
@@ -122,22 +151,14 @@
               <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
               <item name="SP500-Stock-Price-Prediction" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
+              <item name="ml_predictor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
               <item name="SP500-Stock-Price-Prediction" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SP500-Stock-Price-Prediction" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="sp500predictor" type="462c0819:PsiDirectoryNode" />
+              <item name="ml_predictor" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SP500-Stock-Price-Prediction" type="b2602c69:ProjectViewProjectNode" />
@@ -306,20 +327,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/sp500predictor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/sp500.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -461,14 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="76" column="45" lean-forward="false" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/StockDataCrawler_Dev.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -484,16 +483,6 @@
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/etl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-          <folding>
-            <element signature="e#110#129#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -598,6 +587,38 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/etl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/data_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1236">
+          <caret line="76" column="45" lean-forward="false" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
