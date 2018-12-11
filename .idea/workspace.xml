@@ -29,12 +29,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model_development.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="model_development.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1060">
-              <caret line="76" column="32" lean-forward="true" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+            <state relative-caret-position="1111">
+              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="neuralnet.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1043">
+              <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+              <folding>
+                <element signature="e#268#280#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +96,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/ml_tools.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py" />
+        <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py" />
       </list>
     </option>
   </component>
@@ -396,13 +409,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/sp500predictor/static/javascript/charts.js" />
     <entry file="file://$PROJECT_DIR$/app/sp500predictor/static/javascript/multiple_column_lists.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -586,9 +592,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/model_development.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="76" column="32" lean-forward="true" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+        <state relative-caret-position="1111">
+          <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1043">
+          <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding>
+            <element signature="e#268#280#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
