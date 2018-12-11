@@ -34,15 +34,32 @@ think about how and where I get my data from, whether I need to do a lot of conv
 cleansing, what kind of structure my model needs to have, how I develop the app as a whole, ... 
 (the list goes on).  
 I definitely learned a ton during this project even though the result is far away from perfect!
-As I said, I'm going to continue working on this application :)
+As I said, I'm going to continue working on this application. The improvements I already have in my mind are
+for example using the Twitter API to do a sentiment analysis which "explains" the model whether the company did
+well in media or not. Another option would be to use in some way the Wall Street Journal, as there must be some really
+interesting facts which I haven't considered so far. Additionally, I could enrich the data with balance sheet data. 
+There definitely are so many ways to continue this project! :)
 
-### 2. Installation - only tested on Windows 10!
+### 2. How I developed the model and how its performance gets evaluated
+The data I used comes from the [Quandl API](https://www.quandl.com/). I used basic financial data such as 
+**Open-High-Low-Close** Data for each Stock Symbol. I tried to predict the (adjusted) Close value of the stock 
+for the next day given on the OHLC data from the current day. This is the most obvious straight-forward way, 
+and I'm thinking about whether there are possibilities to improve this. But for now, this is what the model learns.  
+I evaluated the performance of each model by calculating the 
+[Root Mean Squared Error](http://statweb.stanford.edu/~susan/courses/s60/split/node60.html) for the predictions.
+Those models, which got a RMSE which is low in comparison to the stock price gets used in the SP500 Predictor; this way,
+no models which performed poorly are being used in the SP500 Predictor.  
+If you want to get a better understanding of how I developed the scripts, take a look at the .ipynb files in the project 
+directory. They show how i encapsulated cells and why I decided in certain ways.
+
+
+### 3. Installation - only tested on Windows 10!
 To install this project, I'd recommend using Anaconda for virtual environments.
 There are several requirements (installed libraries) which your machine needs to have in
 order to run the application. I've provided a **requirements.txt** file which contains
 all of the dependencies except for **PyTorch**, which you'll have to **install manually**.
 
-##### 2.1 Install dependencies in a virtual environment
+##### 3.1 Install dependencies in a virtual environment
 If you've got Anaconda installed, do the following to be able to run the application:
 1. Clone or Download the Repository onto your local machine.
 2. If you downloaded the Repository, unzip the files.
@@ -56,7 +73,7 @@ most of the needed dependencies automatically.
 `conda install pytorch-cpu torchvision-cpu -c pytorch`
 6. Now you have all the dependencies installed. It's time to get the server up and running!
 
-##### 2.2 Run the Server
+##### 3.2 Run the Server
 If you're in the SP500 Order in the Shell (e.g. Anaconda Prompt), change the directory to 
 the app folder (`cd app`). From there, type the following:  
 `python manage.py runserver`.  
@@ -68,7 +85,7 @@ below it's localhost:8000)
 <img src="images/runserver.JPG">  
 Have fun trying out the prototype :)
 
-### 3. How to Use
+### 4. How to Use
 There are mainly three things you can do with the scripts of this repository:
 1. Download, transform and store finance data using the [Quandl API](https://www.quandl.com/). For this, enter the
 path where the etl.py script lies (app/ml_predictor/tools) and then type into your console `python etl.py`.  
@@ -85,11 +102,11 @@ In the future, I'm going to add some parameters to both scripts, so that you can
 for which time etc. Right now, you have to use the whole script :)
 3. Run the server (see above, 2.2 Run the Server). 
 
-### 4. Recommendations
+### 5. Recommendations
 For proper usage of the application, I'd recommend a window width of 1300px or above (in Chrome, press F12 to see the size of the browser).  
 I didn't include any files by now that make the application responsive, therefore it's best to use it in fullscreen format on a notebook or so.
 
-### 5. File Descriptions
+### 6. File Descriptions
 ```
 -SP500-Stock-Price-Prediction
     |
@@ -213,7 +230,7 @@ I didn't include any files by now that make the application responsive, therefor
     |- README
 ```
 
-### 6. Technologies used
+### 7. Technologies used
 The project itself doesn't consist of pure Python. I used several frameworks or libraries - 
 the most important ones are the following:
 - Pandas: Handling Data
@@ -222,7 +239,7 @@ the most important ones are the following:
 - Chart.js: Visualizations in the App itself
 - several more (like NumPy, Matplotlib, SQLAlchemy, ...)
 
-### 7. Acknowledgements
+### 8. Acknowledgements
 I'd like to mention the help I got from many Stackoverflow Posts which helped me in a lot of
 situations. Every part of code which I took or which inspired me to code in a certain way is
 commented in the section of the app where it's used.  

@@ -1,0 +1,4 @@
+
+^python:S107="GMethod "fit" has 11 parameters, which is greater than the 7 authorized.(±½ý«
+lpython:S3776="TRefactor this function to reduce its Cognitive Complexity from 26 to the 15 allowed.(±½ý«
+6python:S125‰"Remove this commented out code.(û£ìk
