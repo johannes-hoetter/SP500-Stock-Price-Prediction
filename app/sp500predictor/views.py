@@ -35,13 +35,10 @@ def index(request):
 
     # get some visualizations for when the user enters the page
     # if available, display amazon as first company (as this is a known company)
-    try:
-        data_prices, data_predictions, data_dates, symbol = get_data_for_chart('AMZN')
-        tomorrow = get_next_date('AMZN')
-    except:
-        first_model = list(sp500predictor.useable_models)[0]
-        data_prices, data_predictions, data_dates, symbol = get_data_for_chart(first_model)
-        tomorrow = get_next_date(first_model)
+
+    first_model = list(sp500predictor.useable_models)[0]
+    data_prices, data_predictions, data_dates, symbol = get_data_for_chart(first_model)
+    tomorrow = get_next_date(first_model)
 
     # User has sent a request
     if request.method == 'POST':
@@ -130,7 +127,7 @@ def get_data_for_chart(symbol):
         dates = sorted(dates[:365])
         return real_prices, pred_prices, dates, symbol
     except:
-        raise Exception('No such symbol')
+        return None
 
 def get_next_date(symbol):
     """
@@ -145,5 +142,5 @@ def get_next_date(symbol):
         date = str(date.year) + " " +  str(date.month).zfill(2) + " " + str(date.day).zfill(2)
         return date
     except:
-        raise Exception("No such Symbol")
+        return None
 
