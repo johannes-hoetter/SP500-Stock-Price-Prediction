@@ -108,7 +108,10 @@ future values in the past (kind of time-travelling ;) ), the (Google) model is a
 Of course this shouldn't be accepted without any critical considerations. Looking closely at the image, we can see that the 
 predictions are good, but always a little "too late" (the orange graph is following the blue one). Therefore, the model can be used
 to predict values given that there is a momentum (the model is able to see that high prices today will most likely lead
-to high prices tomorrow etc.). What the model most likely won't detect is a crisis, a rapid fall of the prices!
+to high prices tomorrow etc.). What the model most likely won't detect is a crisis, a rapid fall of the prices!  
+Still, I believe that this prototype has potential to be used as a baseline - enriching the data with social media content etc.
+it might be possible to "move" the predictions a little to the left on the x-axis (which means we'd actually be able to
+build predictions of the performance).
 
 
 ---
@@ -116,11 +119,24 @@ to high prices tomorrow etc.). What the model most likely won't detect is a cris
 ## 3. Methodology
 
 ### 3.1 Preprocessing Steps
+The data is being collected via the Quandl API. A Script calls the API-url for every one of the 500+ companies which
+exist in the Index. The Dates have to be transformed from Strings to Datetime Objects. The target value (Adjusted Close
+price for the next day) needs to be read from the following row. As each column is numerical, the data can directly be
+scaled and stored. 
 
 ### 3.2 Implementation
+After the models have been trained, only those with a "good" performance (RMSE value is low in relation
+to the stock prices for this company's share) get selected to be used in the S&P500 Predictor. The S&P500 Predictor is
+a Wrapper for all the models that have been trained; Whenever we want to get a prediction for a stock price, we can use
+the Predictor to call the underlying company model with todays values as input features.
+
+The S&P 500 Predictor Prototype is build inside of a very little [Django](https://www.djangoproject.com/) 
+Web Application. Therefore the predictor can be accessed via a GUI. The result will be displayed in a table,
+additionally a visualization of the model on past data will be shown using Chart.js (see above).
 
 ### 3.3 Model results
-
+Roughly half of the trained models predict very well on past data.
+<img src=train_notebook.JPG">
 
 ---
 
