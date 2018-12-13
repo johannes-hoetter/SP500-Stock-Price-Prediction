@@ -119,25 +119,31 @@ def get_data_for_chart(symbol):
     get chart data which can be processed by Chart.js
     :param symbol (string): Stock Symbol for the company
     """
-    path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'ml_format')
-    pred_prices = list(sp500predictor.predict_history(symbol, path=path, max=365).values())[0]
-    _, real_prices = data_handler.load_from_npz(symbol, path=path, max=365)
-    real_prices = real_prices.tolist()
-    path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'raw')
-    df = data_handler.load_from_csv(symbol, path)
-    dates = [int("{}".format(date.replace('-', ''))) for date in df['Date']]
-    dates = sorted(dates[:365])
-    return real_prices, pred_prices, dates, symbol
+    try:
+        path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'ml_format')
+        pred_prices = list(sp500predictor.predict_history(symbol, path=path, max=365).values())[0]
+        _, real_prices = data_handler.load_from_npz(symbol, path=path, max=365)
+        real_prices = real_prices.tolist()
+        path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'raw')
+        df = data_handler.load_from_csv(symbol, path)
+        dates = [int("{}".format(date.replace('-', ''))) for date in df['Date']]
+        dates = sorted(dates[:365])
+        return real_prices, pred_prices, dates, symbol
+    except:
+        raise Exception('No such symbol')
 
 def get_next_date(symbol):
     """
     Get the last date which was observed in the .csv file for a given stock
     :param symbol (string): Stock Symbol for the company
     """
-    path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'raw')
-    df = data_handler.load_from_csv(symbol, path)
-    date = str(max([int("{}".format(date.replace('-', ''))) for date in df['Date']]))
-    date = datetime.strptime(date, '%Y%m%d') + timedelta(days=1)
-    date = str(date.year) + " " +  str(date.month).zfill(2) + " " + str(date.day).zfill(2)
-    return date
+    try:
+        path = os.path.join(os.getcwd(), 'ml_predictor', 'data', 'raw')
+        df = data_handler.load_from_csv(symbol, path)
+        date = str(max([int("{}".format(date.replace('-', ''))) for date in df['Date']]))
+        date = datetime.strptime(date, '%Y%m%d') + timedelta(days=1)
+        date = str(date.year) + " " +  str(date.month).zfill(2) + " " + str(date.day).zfill(2)
+        return date
+    except:
+        raise Exception("No such Symbol")
 
