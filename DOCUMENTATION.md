@@ -39,6 +39,7 @@ additionally to the README for this project.
 
 ### 1.3 Metrics
 
+https://medium.com/human-in-a-machine-world/mae-and-rmse-which-metric-is-better-e60ac3bde13d
 
 --- 
 
