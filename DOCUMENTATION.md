@@ -136,7 +136,7 @@ additionally a visualization of the model on past data will be shown using Chart
 
 ### 3.3 Model results
 Roughly half of the trained models predict very well on past data.
-<img src=train_notebook.JPG">
+<img src="train_notebook.JPG">
 
 ---
 
