@@ -29,12 +29,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="714">
-                <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+              <first_editor relative-caret-position="889">
+                <caret line="237" column="25" lean-forward="false" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -42,12 +42,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DOCUMENTATION.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DOCUMENTATION.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="289">
-                <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+              <first_editor relative-caret-position="-369">
+                <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -102,8 +102,8 @@
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/web_crawler.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py" />
         <option value="$PROJECT_DIR$/app/sp500predictor/views.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/DOCUMENTATION.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -589,22 +589,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="714">
-            <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+          <first_editor relative-caret-position="-369">
+            <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="289">
-            <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <first_editor relative-caret-position="889">
+            <caret line="237" column="25" lean-forward="false" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
             <folding />
           </first_editor>
           <second_editor />

@@ -227,8 +227,15 @@ I didn't include any files by now that make the application responsive, therefor
     |- images
     |   |
     |   |- etl.jpg
-    |   |- runserver.jpg  
+    |   |- example_screenshot.jpg  
+    |   |- graph_notebook_goog.jpg
+    |   |- ohlc_google.jpg
+    |   |- runserver.jpg
+    |   |- start_goog.jpg
+    |   |- statistics_notebook.jpg
+    |   |- time_needed.jpg
     |   |- train.jpg
+    |   |- train_notebook.jpg
     |
     |- .gitattributes
     |- .gitignore
