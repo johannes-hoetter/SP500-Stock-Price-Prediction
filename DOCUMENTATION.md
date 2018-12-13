@@ -32,22 +32,60 @@ additionally to the README for this project.
 ## 1. Project Definition
 
 ### 1.1 High Level Overview
-This repository contains code and data for a overly-simplified Stock Price Predictor for the S&P 500 Index.
+Being able to predict the future of a companies performance is a dream for many data scientists and business analysts.
+It's known to be an extremely complicated problem, as there are so many (hidden or known) variables which have an input
+for the stock prices. Some ideas for possible features are:
+- the performance of the company measured in past financial data (bilance sheets, OHLC-data, ...)
+- sentiment analysis in social media for the products of the company or the general opinion at the moment
+- what famous & important people say about the company
+- trends in development
+- trends for industries
+- ...
+  
+This repository contains code and data for a **overly-simplified** Stock Price Predictor for the S&P 500 Index.
+The goal is to develop a web-application which offers a little user interface, where the user can input some stock
+data (=symbols like 'GOOG' or 'AMZN') and get predicted prices for the next day. The result by now is shown in the 
+following screenshot:  
+<img src=images/example_screenshot.JPG">  
+
+  
+The goal of this project is to develop a simple prototype which gives me some ideas how to further develop and optimize
+a potential application, e.g. in functionality. Additionally, I not only wanted to create the application as a prototype,
+but furthermore as a baseline for future development. More on this in the next sections.   
+
+The S&P 500 Predictor consists of hundreds of artificial neural networks, one for each stock (that was able to perform well
+enough, bad models were excluded).
+
 
 
 ### 1.2 The Problem
-
+As already mentioned, the goal is to create a model which is able to predict "well" on future performances of companies 
+based on some data. The problem I'm facing during developing the application is to get to a point where I can say with
+a certain confidence, that the model is good enough to predict prices which will lead to profitable results when used
+as a trading engine. **Right now, the problem isn't solved - I wouldn't recommend to use the model as a predictor for future
+prices, even though it performs well on past data**. The model simply isn't facing all the variance that occurs when predicting
+future performances (as I'm only including a few financial features). However, as this was meant to be a prototype/baseline, 
+I can say that I'm pleased with the results by now :)
 
 ### 1.3 Metrics
-
-https://medium.com/human-in-a-machine-world/mae-and-rmse-which-metric-is-better-e60ac3bde13d
+To measure the performance of the models, the [RMSE](http://statweb.stanford.edu/~susan/courses/s60/split/node60.html) 
+metric is used. RMSE stands for the Root Mean Squarred Error, a metric which is used to calculate the performance of
+regression models by first calculating the squarred error of a prediction (-> SE), then taking the mean over the (batch of) data 
+(-> MSE), and finally calculating the Root to compensate the square (-> RMSE). The advantage of this metric is that it is 
+able to punish big errors much more than large errors, and I definitely want to avoid big errors when predicting stock prices!
+If you want to get further details, I recommend the following medium article: 
+[MAE and RMSE — Which Metric is Better?](https://medium.com/human-in-a-machine-world/mae-and-rmse-which-metric-is-better-e60ac3bde13d)
 
 --- 
 
 ## 2. Analysis
 
 ### 2.1 Features
-
+The Features used for Stock Price Prediction are the following:
+| Feature 	| Description 	|
+|---------	|----------------------------------------------------	|
+| Open 	| Price of the Stock at Opening of the stock market  	|
+| Open 	| Price of the Stock at Opening of the stock market  	|
 
 ### 2.2 Data Visualizations
 
