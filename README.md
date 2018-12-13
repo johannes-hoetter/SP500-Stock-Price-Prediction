@@ -25,7 +25,7 @@ If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf
 ---
 
 ### 1. Project Motivation
-In the last project, we (the upcoming Data Scientists ;) ) were allowed to follow
+In the last project, we were allowed to follow
 a topic we find interesting ourselves. As I'm interested in financial topics, I 
 thought it would be interesting to develop a little prototype for a Stock Price Prediction.
 The motivation was not to build a perfectly fine Stock Price Predictor which will make me 
@@ -135,9 +135,11 @@ I didn't include any files by now that make the application responsive, therefor
     |   |   |   |   |- all stock data in a .npz format
     |   |   |   |
     |   |   |   | - raw
-    |   |   |       |
-    |   |   |       |- all stock data as .csv files
-    |   |   |
+    |   |   |   |   |
+    |   |   |   |   |- all stock data as .csv files
+    |   |   |   |
+    |   |   |   | - Data_Exploration.ipynb
+    |   |   |   
     |   |   |- machine_learning
     |   |   |   |
     |   |   |   |- archive
@@ -230,7 +232,8 @@ I didn't include any files by now that make the application responsive, therefor
     |
     |- .gitattributes
     |- .gitignore
-    |- README
+    |- README.md
+    |- DOCUMENTATION.md
 ```
 
 ### 7. Technologies used

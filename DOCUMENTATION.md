@@ -32,6 +32,7 @@ additionally to the README for this project.
 ## 1. Project Definition
 
 ### 1.1 High Level Overview
+This repository contains code and data for a overly-simplified Stock Price Predictor for the S&P 500 Index.
 
 
 ### 1.2 The Problem
