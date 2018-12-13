@@ -18,13 +18,6 @@ additionally to the README for this project.
   * [3.1 Preprocessing Steps](#31-preprocessing-steps)
   * [3.2 Implementation](#32-implementation)
   * [3.3 Model results](#33-model-results)
-- [4. Results](#4-results)
-  * [4.1 Testing the results](#41-testing-the-results)
-  * [4.2 Discussion](#42-discussion)
-- [5. Conclusion](#5-conclusion)
-  * [5.1 The end-to-end problem](#51-the-end-to-end-problem)
-  * [5.2 Improving the application](#52-improving-the-application)
-
 
 
 ---
@@ -142,21 +135,15 @@ of the next day with an error of max 3.4 USD.
 The screenshots below show the improvement of an example model (GOOG):  
 <img src="images/start_goog.JPG">    
 
-
----
-
-## 4. Results
-
-### 4.1 Testing the results
-
-### 4.2 Discussion
-
----
-
-## 5. Conclusion
-
-### 5.1 The end-to-end problem
-
-
-### 5.2 Improving the application
-As already explained, there are many more data sources which can be used to improve this model. 
+## 4. Next Steps
+In my personal opinion, I believe that the project has been successful. I can use the application as a beta-version and improve
+it to for example use it in my portfolio - for this however, I'm going to further improve it within the next months. The next steps
+are:
+1. Refactor all the code: there are some code smells which I'm not so happy with in the code, for example hard-coded paths.
+I'll rebuild those parts, restructure the project and create some general tools which I can use for further projects.
+2. Rebuild the application: As I'm trying to learn how to build web apps full-stack, I'm going to rebuild the app with Django REST Api (Backend)
+and Angular (Frontend). Additionally, I'll use better visualization tools like Highcharts.js.
+3. Improve the models: I'll collect some more data (Twitter Streams etc.) and try to build well performing models for them. Maybe
+I'll be able to improve the application's quality
+4. Improve the overall application: When I'm content with the performance of my model, I'll try to add functionalities like
+building a trading strategy, building a portfolio etc. Maybe I'm going to build a "recommender system lite" for this functionality :)
