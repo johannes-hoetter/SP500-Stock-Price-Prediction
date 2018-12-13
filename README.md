@@ -6,18 +6,21 @@ in the [S&P 500 Index](https://eu.spindices.com/indices/equity/sp-500).
 
 <img src="images/example_screenshot.JPG">  
 
+**Further Information about the Project itself can be found in the DOCUMENTATION.md File!**
+
 If you've got any questions, feel free to contact me: johannes.hoetter@smail.inf.h-brs.de
 
 ##  Table of Contents
 - [1. Project Motivation](#1-project-motivation)
-- [2. Installation - only tested on Windows 10!](#2-installation---only-tested-on-windows-10-)
-    + [2.1 Install dependencies in a virtual environment](#21-install-dependencies-in-a-virtual-environment)
-    + [2.2 Run the Server](#22-run-the-server)
-- [3. How to Use](#3-how-to-use)
-- [4. Recommendations](#4-recommendations)
-- [5. File Descriptions](#5-file-descriptions)
-- [6. Technologies used](#6-technologies-used)
-- [7. Acknowledgements](#7-acknowledgements)
+- [2. How I developed the model and how its performance gets evaluated](#2-how-i-developed-the-model-and-how-its-performance-gets-evaluated)
+- [3. Installation - only tested on Windows 10!](#3-installation---only-tested-on-windows-10-)
+    + [3.1 Install dependencies in a virtual environment](#31-install-dependencies-in-a-virtual-environment)
+    + [3.2 Run the Server](#32-run-the-server)
+- [4. How to Use](#4-how-to-use)
+- [5. Recommendations](#5-recommendations)
+- [6. File Descriptions](#6-file-descriptions)
+- [7. Technologies used](#7-technologies-used)
+- [8. Acknowledgements](#8-acknowledgements)
 
 ---
 

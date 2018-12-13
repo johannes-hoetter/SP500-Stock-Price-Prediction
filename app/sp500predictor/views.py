@@ -25,6 +25,10 @@ print("DataHandler has been initialized.")
 
 
 def index(request):
+    """
+    loads the page and handles input
+    :param request (HttpRequest): request from the client
+    """
     # TODO:
     # application logic out of views!
     preds = {}
