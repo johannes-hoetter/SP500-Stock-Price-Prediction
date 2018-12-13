@@ -135,8 +135,12 @@ Web Application. Therefore the predictor can be accessed via a GUI. The result w
 additionally a visualization of the model on past data will be shown using Chart.js (see above).
 
 ### 3.3 Model results
-Roughly half of the trained models predict very well on past data.
-<img src="train.JPG">
+Roughly half of the trained models predict very well on past data (as observable in the visualizations).
+They were seen as useable when they got below an RMSE of 1/10 of the latest share price for tomorrows values; for instance:
+the stock symbol FE had a value of 34 USD, therefore the model was accepted as useable if it predicted the correct value
+of the next day with an error of max 3.4 USD.
+The screenshots below show the improvement of an example model (GOOG):
+<img src="images/start_goog.JPG">
 
 ---
 
@@ -154,3 +158,4 @@ Roughly half of the trained models predict very well on past data.
 
 
 ### 5.2 Improving the application
+As already explained, there are many more data sources which can be used to improve this model. 
