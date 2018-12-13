@@ -46,7 +46,7 @@ This repository contains code and data for a **overly-simplified** Stock Price P
 The goal is to develop a web-application which offers a little user interface, where the user can input some stock
 data (=symbols like 'GOOG' or 'AMZN') and get predicted prices for the next day. The result by now is shown in the 
 following screenshot:  
-<img src=images/example_screenshot.JPG">  
+<img src="images/example_screenshot.JPG">  
 
   
 The goal of this project is to develop a simple prototype which gives me some ideas how to further develop and optimize
@@ -82,12 +82,33 @@ If you want to get further details, I recommend the following medium article:
 
 ### 2.1 Features
 The Features used for Stock Price Prediction are the following:
-| Feature 	| Description 	|
-|---------	|----------------------------------------------------	|
-| Open 	| Price of the Stock at Opening of the stock market  	|
-| Open 	| Price of the Stock at Opening of the stock market  	|
+- Date: day of the observation
+- Open: price of the share at opening of the stock market ("first value of the day")
+- High: highest price of the share during the day
+- Low: lowest price of the share during the day
+- Close: price of the share when the stock market closed ("last value of the day")
+- Ex-Dividend: time period between the announcement and payment of a dividend
+- Split-Ratio: the ratio of shares outstanding compared to what was originally available before a stock split (i.e. when 
+Amazon doubled it's amount of shares, as a consequence the prices had to be adjusted)
+- Adjusted Open (High, Low, Close): adjusted price after split
+- Volume: amount of shares traded that day
+
+The target is the Adjusted Close for the next day.
+
 
 ### 2.2 Data Visualizations
+Example Stock History for Google:
+<img src="images/ohlc_google.JPG">  
+This image shows the how the stock price changed for Google shares; the different colors (which are honestly hard to differentiate)
+show the difference in Open, High, Low and Close.
+
+The model's goal is to predict a price for the next day given the today's feature values. Acting as if we tried to predict
+future values in the past (kind of time-travelling ;) ), the (Google) model is able to perform quite well:
+<img src="images/graph_notebook_goog.JPG">  
+Of course this shouldn't be accepted without any critical considerations. Looking closely at the image, we can see that the 
+predictions are good, but always a little "too late" (the orange graph is following the blue one). Therefore, the model can be used
+to predict values given that there is a momentum (the model is able to see that high prices today will most likely lead
+to high prices tomorrow etc.). What the model most likely won't detect is a crisis, a rapid fall of the prices!
 
 
 ---
