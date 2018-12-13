@@ -139,8 +139,9 @@ Roughly half of the trained models predict very well on past data (as observable
 They were seen as useable when they got below an RMSE of 1/10 of the latest share price for tomorrows values; for instance:
 the stock symbol FE had a value of 34 USD, therefore the model was accepted as useable if it predicted the correct value
 of the next day with an error of max 3.4 USD.
-The screenshots below show the improvement of an example model (GOOG):
-<img src="images/start_goog.JPG">
+The screenshots below show the improvement of an example model (GOOG):  
+<img src="images/start_goog.JPG">    
+
 
 ---
 
