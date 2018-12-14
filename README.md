@@ -67,6 +67,8 @@ If you've got Anaconda installed, do the following to be able to run the applica
 1. Clone or Download the Repository onto your local machine.
 2. If you downloaded the Repository, unzip the files.
 3. Open a new Anaconda Prompt Shell and navigate to the project (SP500-Prediction).
+_Hint_: You can use `cd ` in combination with tabulator to auto-complete paths, which makes it much easier to navigate
+through directories. Example: `cd sp` + tab ==> `cd SP500-Stock-Price-Prediction`
 4. Create a new virtual environment typing the following: <br>
 `conda env create --name sp500 --file requirements.txt`.  
  After that, you'll have installed 
