@@ -212,9 +212,13 @@ class NeuralNetwork(nn.Module):
         :return NeuralNetwork: Neural Network which contains the trained neuron-connections (weights)
         """
 
-        ckpt = torch.load(path)
+        if torch.cuda.is_available():
+            self.device = torch.device('cuda:0')
+            ckpt = torch.load(path)
+        else:
+            self.device = torch.device('cpu')
+            ckpt = torch.load(path, map_location='cpu')
         self.num_inputs = ckpt['num_inputs']
         self.load_state_dict(ckpt['state_dict'])
-        self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
         self.to(self.device) # using the model on gpu/cpu
         self.eval() # don't use dropout!
