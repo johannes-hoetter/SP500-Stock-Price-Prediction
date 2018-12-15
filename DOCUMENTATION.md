@@ -5,6 +5,9 @@ Most of them are provided within the different files, e.g. documentation of code
 However, as the repository gets bigger with each commit, I try to give a good overall overview 
 additionally to the README for this project.
 
+_Known Bug (Hint)_: The application hasn't been developed to work responsive, therefore the application doesn't
+look to good when used in a window size with a widht below 1300px. I'm going to fix this soon.
+
 ## Table of Contents
 
 - [1. Project Definition](#1-project-definition)
