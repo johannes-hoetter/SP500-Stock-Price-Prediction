@@ -126,16 +126,52 @@ price for the next day) needs to be read from the following row. As each column 
 scaled and stored. 
 
 ### 3.2 Implementation
-After the models have been trained, only those with a "good" performance (RMSE value is low in relation
-to the stock prices for this company's share) get selected to be used in the S&P500 Predictor. The S&P500 Predictor is
-a Wrapper for all the models that have been trained; Whenever we want to get a prediction for a stock price, we can use
-the Predictor to call the underlying company model with todays values as input features.
 
-The S&P 500 Predictor Prototype is build inside of a very little [Django](https://www.djangoproject.com/) 
-Web Application. Therefore the predictor can be accessed via a GUI. The result will be displayed in a table,
-additionally a visualization of the model on past data will be shown using Chart.js (see above).
+The implementation of the S&P500 Predictor can be mainly split into two stages:
+1. Training the models (artificial neural networks) for stock price prediction and wrapping them in the SP500 Predictor
+2. Building the [Django](https://www.djangoproject.com/) Web Application in order to access the Predictor via a GUI.
+
+During the first part, the preprocessed data will be used to train one neural network for each stock symbol using PyTorch.
+The resulting models will be evaluated against the RMSE metric. Those steps can be divided into sub-steps:
+1. Implementing a tool which handles data requests so that we can get the access to the data for each stock symbol
+(-> DataHandler)
+2. Define the network architecture for _all_ models (see below), including its loss function to optimize parameters.
+3. For each stock symbol, train a neural network n times and evaluate its results against the RMSE - log the results.
+4. After the n epochs, if the model reached the RMSE threshold of an error 1/10 the size of the latest stock price, 
+it is considered to be a well performing model* and therefore will be used in the SP500 Predictor. If not, it will not be
+included.
+5. Store all models
+
+The second part was more related to software engineering, in order to get the web application up and running.
+Using Django, which expects a composite webapp to be a collection of multiple modular applications, 
+my web application consists mainly of a single application which provides a HTML template which will be dynamically
+changed given user inputs. This also can be divided into sub-steps:
+1. Start a new project using Django and add a new application (see [documentation](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) 
+for reference)
+2. In the appliation, build a view file which loads the SP500 Predictor with all its models that have before been considered
+to be well performing whenever the Server gets started.
+3. Build a function which is able to handle user requests (in this case the Stock Symbols or a number of recommendations).
+4. Build the HTML Template (see [documentation](https://docs.djangoproject.com/en/1.7/topics/templates/) for reference).
+This prototype is using [Chart.js](https://www.chartjs.org/) in order to provide some visualizations of the results. The
+predictions itself will be shown in a table.
+5. _optional:_ add some css styling rules
+
+`*` a model which reached an RMSE of 1/10 of the latest stock price is considered to be well performing, as the error is
+low in relation to the current stock prices for the company's share. For instance:  
+the stock symbol FE had a value of 34 USD, therefore the model was accepted as useable if it predicted the correct value
+of the next day with an error of max 3.4 USD.
+
 
 ### 3.3 Model results
+The architecture for the artificial neural networks is simple and pretty much straightforward. Using PyTorch, I developed
+a 2-Layer Feed Forward Neural Network (-> 1 Input Layer, 1 Hidden Layer and 1 Output Layer; the Input Layer often gets neglected
+when talking about the number of layers, therefore it's called a 2-Layer Neural Network). In the following, I'm going to 
+explain the details of the architecture. It's easier to do this by first showing the code for the architecture:
+<img src="images/nn_architecture.JPG"> 
+
+
+---
+Old Version
 Roughly half of the trained models predict very well on past data (as observable in the visualizations).
 They were seen as useable when they got below an RMSE of 1/10 of the latest share price for tomorrows values; for instance:
 the stock symbol FE had a value of 34 USD, therefore the model was accepted as useable if it predicted the correct value
