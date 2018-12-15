@@ -18,7 +18,7 @@ additionally to the README for this project.
   * [3.1 Preprocessing Steps](#31-preprocessing-steps)
   * [3.2 Implementation](#32-implementation)
   * [3.3 Model results](#33-model-results)
-- [4. Discussion](#4.-discussion)
+- [4. Discussion](#4-discussion)
 - [5. Next Steps](#5-next-steps)  
 
 
