@@ -30,12 +30,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3728">
-                <caret line="239" column="25" lean-forward="true" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
+              <first_editor relative-caret-position="442">
+                <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -43,12 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DOCUMENTATION.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DOCUMENTATION.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="719">
-                <caret line="208" column="131" lean-forward="false" selection-start-line="208" selection-start-column="131" selection-end-line="208" selection-end-column="131" />
+              <first_editor relative-caret-position="464">
+                <caret line="70" column="48" lean-forward="false" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="48" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -103,8 +103,8 @@
         <option value="$PROJECT_DIR$/app/ml_predictor/tools/data_converter.py" />
         <option value="$PROJECT_DIR$/app/ml_predictor/machine_learning/neuralnet.py" />
         <option value="$PROJECT_DIR$/app/sp500predictor/views.py" />
-        <option value="$PROJECT_DIR$/DOCUMENTATION.md" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/DOCUMENTATION.md" />
       </list>
     </option>
   </component>
@@ -590,22 +590,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="719">
-            <caret line="208" column="131" lean-forward="false" selection-start-line="208" selection-start-column="131" selection-end-line="208" selection-end-column="131" />
+          <first_editor relative-caret-position="442">
+            <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3728">
-            <caret line="239" column="25" lean-forward="true" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
+          <first_editor relative-caret-position="464">
+            <caret line="70" column="48" lean-forward="false" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="48" />
             <folding />
           </first_editor>
           <second_editor />

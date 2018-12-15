@@ -68,7 +68,7 @@ To measure the performance of the models, the [RMSE](http://statweb.stanford.edu
 metric is used. RMSE stands for the Root Mean Squarred Error, a metric which is used to calculate the performance of
 regression models by first calculating the squarred error of a prediction (-> SE), then taking the mean over the (batch of) data 
 (-> MSE), and finally calculating the Root to compensate the square (-> RMSE). The advantage of this metric is that it is 
-able to punish big errors much more than large errors, and I definitely want to avoid big errors when predicting stock prices!
+able to punish large errors much more than small errors, and I definitely want to avoid big errors when predicting stock prices!
 If you want to get further details, I recommend the following medium article: 
 [MAE and RMSE — Which Metric is Better?](https://medium.com/human-in-a-machine-world/mae-and-rmse-which-metric-is-better-e60ac3bde13d)
 
