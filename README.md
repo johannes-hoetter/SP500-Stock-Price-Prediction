@@ -228,9 +228,13 @@ I didn't include any files by now that make the application responsive, therefor
     |   
     |- images
     |   |
+    |   |- end_goog.jpg
     |   |- etl.jpg
     |   |- example_screenshot.jpg  
+    |   |- example_stats_goog_1.jpg
+    |   |- example_stats_goog_2.jpg
     |   |- graph_notebook_goog.jpg
+    |   |- nn_architecture.jpg
     |   |- ohlc_google.jpg
     |   |- runserver.jpg
     |   |- start_goog.jpg
