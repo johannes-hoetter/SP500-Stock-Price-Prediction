@@ -2,6 +2,7 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/app/sp500predictor/templates/sp500predictor/index.html" line="128" />
+    <bookmark url="file://$PROJECT_DIR$/DOCUMENTATION.md" line="207" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c750ca69-cca0-40da-b675-9c00f4d06a84" name="Default" comment="" />
@@ -46,8 +47,8 @@
         <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="340">
-                <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+              <first_editor relative-caret-position="719">
+                <caret line="208" column="131" lean-forward="false" selection-start-line="208" selection-start-column="131" selection-end-line="208" selection-end-column="131" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -603,8 +604,8 @@
     <entry file="file://$PROJECT_DIR$/DOCUMENTATION.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="340">
-            <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <first_editor relative-caret-position="719">
+            <caret line="208" column="131" lean-forward="false" selection-start-line="208" selection-start-column="131" selection-end-line="208" selection-end-column="131" />
             <folding />
           </first_editor>
           <second_editor />

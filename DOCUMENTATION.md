@@ -158,6 +158,12 @@ This prototype is using [Chart.js](https://www.chartjs.org/) in order to provide
 predictions itself will be shown in a table.
 5. _optional:_ add some css styling rules
 
+After all, it's important to check package dependencies. For this rather simple project, there have been used an awful lot of
+packages (active or passive through other packages); as I didn't deploy this application on a server accessible through an URL,
+I decided to create a file which can be used for installment on a local machine. If you want to build a predictor yourself and you
+want to make it accessible for other users, you should at least provide all the packages needed in a list or instruction. This
+minimizes the number of headaches caused through technical errors ;)
+
 `*` a model which reached an RMSE of 1/10 of the latest stock price is considered to be well performing, as the error is
 low in relation to the current stock prices for the company's share. For instance:  
 the stock symbol FE had a value of 34 USD, therefore the model was accepted as useable if it predicted the correct value
@@ -195,6 +201,21 @@ The resulting architecture led to many great models. As an example, take a look 
 <img src="images/end_goog.JPG">  
 
 ## 4. Discussion
+I think that it's always hard to explain why a model works or doesn't work that you implemented yourself. Some of my ideas are the following:
+- I reduced the number of models used drastically; the ones which weren't able to "convince" me during training weren't selected at all. 
+Of course, this doesn't have to be the optimal solution, as I'm missing out on a lot of possible companies to use when trading! However,
+this method gives me better confidence when making predictions, as I know that the models which are being used were performing well on past data.
+- I tried to build an architecture which prevents Overfitting; compared to some other models I developed earlier which didn't use these
+ techniques, the models now are capable of predicting on values the model hasn't seen before (new price-highs and lows, new dates).
+- The data is "complete"; as I'm only using companies of the S&P 500 universe, all the data I collected as complete (no missing data) and in
+a standardized format. This made it really easy for me to develop many models really fast. When I'm going to include several other data sources,
+this won't be given anymore, and I know that this will be a big challenge for me!
+
+It's also been quite challenging for me as a beginner in Frontend-/Backend-Development to create the web application, but this is
+just something caused by my lack of skills in this area. I think it's super important that if you have a great model / set of models that 
+it's useable in a "nice" way. Personally, I'd already be happy using the model through a CLI; however, as I wanted to make this application
+accessible for many users (also those with lacking knowledge in programming, command line interfaces etc.), therefore it's been important
+to me to develop a GUI.
 
 ## 5. Next Steps
 In my personal opinion, I believe that the project has been successful. I can use the application as a beta-version and improve
