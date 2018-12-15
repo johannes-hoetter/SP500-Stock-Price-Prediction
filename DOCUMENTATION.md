@@ -167,17 +167,30 @@ The architecture for the artificial neural networks is simple and pretty much st
 a 2-Layer Feed Forward Neural Network (-> 1 Input Layer, 1 Hidden Layer and 1 Output Layer; the Input Layer often gets neglected
 when talking about the number of layers, therefore it's called a 2-Layer Neural Network). In the following, I'm going to 
 explain the details of the architecture. It's easier to do this by first showing the code for the architecture:
-<img src="images/nn_architecture.JPG"> 
+<img src="images/nn_architecture.JPG">   
+- using only 2 Layers: as I already stated, I wanted to use this predictor as a prototype. Using only 2 layers with 128 / 64 neurons
+makes it much more time-efficient to train multiple models; training a single model for 50 epochs took me roughly 5 to 50 seconds; 
+the whole training session for all models was done in roughly 10 hours. Additionally, I kept in mind that too much layers/neurons in a FFN
+can cause massive [overfitting](https://elitedatascience.com/overfitting-in-machine-learning), which would make the model useless.
+- using Batch Normalization: this is known to be kind of a "free lunch" in Machine Learning (even though we all know that ["there is
+no such thing as a free lunch"](https://en.wikipedia.org/wiki/There_ain%27t_no_such_thing_as_a_free_lunch)). For each batch of data,
+the inputs in the batch itself get normalized (mean of 0, sigma of 1). As a consequence, the model can much more easily learn on the data.
+The downside of using BN is the extra effort in implementing the model, as there are some things which have to be considered additionally 
+(e.g. that the model will throw an error when the size of a batch is 1, which might occur at the end of a training session when there's only
+one row of data left to train the model). I compared the results of the model using BN vs. the model not using BN, and the results clearly
+showed that using BN is the right decision here.
+- using Dropout: just as Batch Normalization, Dropout is known to be a "thing" you can add to the network without thinking about it too much.
+Dropout makes it possible to "block" neurons with a probability of p (given in the code), which prevents some edges/weights to be
+dominant. As a result, the model is much less prone to Overfitting!
+- using ReLU as an activation function: Honestly, this one is rather random than a scientific choice; I tried several activation functions
+on an example model (predicting prices for Amazon), and it showed that using ReLU was the best fit. In future development, I'd have to spend
+some more time choosing the right activation function.
+
+The resulting architecture led to many great models. As an example, take a look at an extract of the training for the Google model:  
+<img src="images/start_goog.JPG">   
+<img src="images/end_goog.JPG">  
 
 
----
-Old Version
-Roughly half of the trained models predict very well on past data (as observable in the visualizations).
-They were seen as useable when they got below an RMSE of 1/10 of the latest share price for tomorrows values; for instance:
-the stock symbol FE had a value of 34 USD, therefore the model was accepted as useable if it predicted the correct value
-of the next day with an error of max 3.4 USD.
-The screenshots below show the improvement of an example model (GOOG):  
-<img src="images/start_goog.JPG">    
 
 ## 4. Next Steps
 In my personal opinion, I believe that the project has been successful. I can use the application as a beta-version and improve
@@ -187,7 +200,10 @@ are:
 I'll rebuild those parts, restructure the project and create some general tools which I can use for further projects.
 2. Rebuild the application: As I'm trying to learn how to build web apps full-stack, I'm going to rebuild the app with Django REST Api (Backend)
 and Angular (Frontend). Additionally, I'll use better visualization tools like Highcharts.js.
-3. Improve the models: I'll collect some more data (Twitter Streams etc.) and try to build well performing models for them. Maybe
-I'll be able to improve the application's quality
+3. Improve the models: I'll collect some more data (Twitter Streams etc.) and try to build well performing models for them. As suggested
+by an anonymous Udacity Reviewer (thanks a lot for the help! ;) ), I'm going to improve the architecture of the neural network; I'll
+try to use an artificial neural network which uses [LSTM Cells](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) in order to
+improve the models performance using time series data. Additionally, I hope that adding some layers and/or neurons in combination with
+the LSTM Cells improve the quality of the results.
 4. Improve the overall application: When I'm content with the performance of my model, I'll try to add functionalities like
 building a trading strategy, building a portfolio etc. Maybe I'm going to build a "recommender system lite" for this functionality :)
