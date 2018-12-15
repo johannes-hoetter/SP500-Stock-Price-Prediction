@@ -18,7 +18,9 @@ additionally to the README for this project.
   * [3.1 Preprocessing Steps](#31-preprocessing-steps)
   * [3.2 Implementation](#32-implementation)
   * [3.3 Model results](#33-model-results)
-- [4. Next Steps](#4-next-steps)
+- [4. Discussion](#4.-discussion)
+- [5. Next Steps](#5-next-steps)  
+
 
 
 ---
@@ -188,11 +190,13 @@ some more time choosing the right activation function.
 
 The resulting architecture led to many great models. As an example, take a look at an extract of the training for the Google model:  
 <img src="images/start_goog.JPG">   
+...  
+
 <img src="images/end_goog.JPG">  
 
+## 4. Discussion
 
-
-## 4. Next Steps
+## 5. Next Steps
 In my personal opinion, I believe that the project has been successful. I can use the application as a beta-version and improve
 it to for example use it in my portfolio - for this however, I'm going to further improve it within the next months. The next steps
 are:
