@@ -89,6 +89,13 @@ Amazon doubled it's amount of shares, as a consequence the prices had to be adju
 
 The target is the Adjusted Close for the next day.
 
+As an example, the first 10 rows of the data for google look like the following:  
+<img src="images/example_data_goog.JPG">  
+
+Extract of the summary statistics for google:  
+<img src="images/example_stats_goog_1.JPG">  
+<img src="images/example_stats_goog_2.JPG">  
+
 
 ### 2.2 Data Visualizations
 Example Stock History for Google:
